@@ -1,15 +1,211 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Home{% endblock %}</title>
+    <meta charset = "utf-8">
+
+    <title>ololo</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/jquery-3.5.0.js'%}"></script>
 </head>
-<header>
-    <p><a href="/">Home</a> <a href="/forum/">Forum</a></p>
-</header>
+
+
+
 <body>
-{% block content %}
-HOME PAGE
-{% endblock %}
+    <header class="header">
+        <div class="header-inner">
+            <div class="container">
+                <div class="header-area">
+                    <div class="header-logo">
+                        <img src="{% static 'img/logo.png'%}" class="logo">
+                    </div>
+
+                    <nav class="nav-menu">
+                        <ul class="nav-list">
+                            <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">SHOP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="forum.html">FORUM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">PAGES</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">CONTACT</a></li>
+                        </ul>
+                        <!-- ==START== Animation for header menu button-->
+                        <div class="hamburger-button" onclick="hamburger()">
+                            <svg id="hamburger_anim" class="ham hamRotate ham1" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                                <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                                <path class="line middle" d="m 30,50 h 40" />
+                                <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                            </svg>
+                        </div>
+                        <!-- ==END== Animation for header menu button-->
+                    </nav>
+                </div>
+            </div>
+            <ul class="nav-list-hamburger">
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="home.html">HOME</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">SHOP</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="forum.html">FORUM</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">PAGES</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <section class="intro-section fullscreen">
+        <div class="intro">
+            <div class="intro-inner">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-section">
+        <div class="features">
+            <div class="features-container">
+                <div class="feature-helper-block">
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon1.png'%}" alt="">
+                            <h6>Free Delivery</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon2.png'%}" alt="">
+                            <h6>Return Policy</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-helper-block">
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon3.png'%}" alt="">
+                            <h6>24/7 Support</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon3.png'%}" alt="">
+                            <h6>Secure Payment</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-section fullscreen">
+        <div class="product">
+            <div class="product-inner">
+                <div class="container">
+                    <div class="product-flex-container">
+                        <div class="product-img-container first-product-img">
+                            <img src="{% static 'img/product-guitar-one.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container second-product-img">
+                            <img src="{% static 'img/product-guitar-two.jpeg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container third-product-img">
+                            <img src="{% static 'img/product-guitar-third.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container fourth-product-img">
+                            <img src="{% static 'img/product-guitar-fourth.jpg'%}" class="product-img"  alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container fifth-product-img">
+                            <img src="{% static 'img/product-guitar-fifth.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-section fullscreen">
+        <div class="slider">
+            <div class="slider__wrapper">
+                <div class="slider__items">
+                    <div class="slider__item">
+                        <div style="height: 250px; background: orange;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: green;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: violet;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: coral;">
+                            <p style="position: relative; width: 100%; top: 48%; text-align: center; color: white; font-size: 40px;">
+                                Ololololo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="slider__control slider__control_prev" href="#" role="button"></a>
+            <a class="slider__control slider__control_next slider__control_show" href="#" role="button"></a>
+        </div>
+        <div class="comment-slider">
+            <div class="comment-article-slider">
+                <div class="slider__wrapper">
+                    <div class="slider__items">
+                        <div class="slider__item">
+                            <div style="height: 250px; background: orange;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: green;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: violet;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: coral;"></div>
+                        </div>
+                    </div>
+                </div>
+                <a class="slider__control slider__control_prev" href="#" role="button"></a>
+                <a class="slider__control slider__control_next slider__control_show" href="#" role="button"></a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.sticky.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/slider.js'%}"></script>
 </body>
+
 </html>
