@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import ArticleModel, PageHit, CommentModel
+from .models import ArticleModel, CommentModel
 
 
 def forum_render(request):
-    articles = PageHit.objects.all()
+    articles = ArticleModel.objects.all()
     context = {
         "articles": articles,
     }
@@ -12,14 +12,12 @@ def forum_render(request):
 
 def article_render(request, num):
     articles = ArticleModel.objects.get(id__exact=num)
-    page_hit = PageHit.objects.get(article__exact=articles)
     comments = CommentModel.objects.filter(article_to_id=articles)
-    page_hit.views += 1
-    page_hit.save()
+    articles.views += 1
+    articles.save()
     context = {
         "article": articles,
         "num": num,
-        "page_hit": page_hit,
         "comments": comments,
     }
     return render(request, 'articles.html', context)

@@ -9,24 +9,16 @@ class ArticleModel(models.Model):
     heading = models.CharField(max_length=50, verbose_name="Heading", default="Heading")
     text = models.TextField(max_length=50000, verbose_name='Text', default="Text")
     date = models.DateTimeField(auto_now=True, verbose_name="Date")
+    views = models.IntegerField(default=0)
+    # все нужные поля в таблице для статьи
 
     class Meta:
         verbose_name = 'Article'
         verbose_name_plural = 'Articles'
+    # Как будут отображаться Статьи в админке
 
     def __str__(self):
         return self.heading
-
-
-class PageHit(models.Model):
-    article = models.OneToOneField(ArticleModel, on_delete=models.CASCADE, default=0)
-    views = models.IntegerField(default=0)
-
-
-@receiver(post_save, sender=ArticleModel)
-def create_article_pagehit(sender, instance, created, **kwargs):
-    if created:
-        PageHit.objects.create(article=instance)
 
 
 class CommentModel(models.Model):
