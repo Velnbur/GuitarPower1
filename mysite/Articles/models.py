@@ -26,6 +26,7 @@ class CommentModel(models.Model):
     article_to = models.ForeignKey(ArticleModel, verbose_name='Article', on_delete=models.CASCADE, null=True)
     text = models.TextField(max_length=5000, verbose_name='Comment Text', default="")
     date = models.DateTimeField(auto_now=True, verbose_name="Date")
+    # все нужные поля в таблице для коментариев к статьям
 
     class Meta:
         verbose_name = 'Comment'
@@ -33,3 +34,4 @@ class CommentModel(models.Model):
 
     def __str__(self):
         return "Коментарий %s" % self.author + " к %s" % self.article_to
+    # Как будут отображаться коментарии в админке

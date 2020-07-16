@@ -60,8 +60,12 @@ def forum_render(request, num):
 def article_render(request, num):
     articles = ArticleModel.objects.get(id__exact=num)
     comments = CommentModel.objects.filter(article_to_id=articles)
+    # иннициализация статьи и комментариев
+
     articles.views += 1
     articles.save()
+    # увеличение просмотров на 1 и сохранение его в БД
+
     context = {
         "article": articles,
         "num": num,
