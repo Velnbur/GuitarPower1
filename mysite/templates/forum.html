@@ -1,0 +1,9 @@
+{%extends 'home.html'%}
+
+{%block title%}Forum{%endblock%}
+{%block content%}
+{% for i in articles %}
+<p><a href="/forum/articles{{i.article.id}}">{{i.article.heading}}</a></p>
+<p>{{i.article.date}}</p>
+{% endfor %}
+{%endblock%}
