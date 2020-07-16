@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}Forum{%endblock%}</title>
+</head>
+<body>
+{%block content%}
+{% for i in articles %}
+<p><a href="/forum/articles{{i.article.id}}">{{i.article.heading}}</a></p>
+<p>{{i.article.date}}</p>
+{% endfor %}
+{%endblock%}
+</body>
+</html>
