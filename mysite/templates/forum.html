@@ -1,162 +1,16 @@
-<<<<<<< HEAD
-
-<!DOCTYPE html>
-<html>
-=======
 {% extends 'home.html' %}
->>>>>>> 00ef329f07a52a2f852ad236da949f01392b8998
 
 {% block title %} Forum {% endblock %}
 
-<<<<<<< HEAD
-<head>
-    <meta charset = "utf-8">
-
-    <title>ololo</title>
-
-    <link rel="stylesheet" href="css/linearicons.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <script type="text/javascript" src="js/jquery-3.5.0.js"></script>
-    <script type="text/javascript" src="js/parallax.js"></script>
-    <script type="text/javascript" src="js/jquery.event.frame.js"></script>
-    <script type="text/javascript" src="js/jquery.parallax.min.js"></script>
-</head>
-
-
-
-<body>
-    <header class="header">
-        <div class="header-inner">
-            <div class="container">
-                <div class="header-area">
-                    <div class="header-logo">
-                        <img src="img/logo.png" class="logo">
-                    </div>
-
-                    <nav class="nav-menu">
-                        <ul class="nav-list">
-                            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">SHOP</a></li>
-                            <li class="nav-item"><a class="nav-link" href="forum.html">FORUM</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">PAGES</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">CONTACT</a></li>
-                        </ul>
-                        <!-- ==START== Animation for header menu button-->
-                        <div class="hamburger-button" onclick="hamburger()">
-                            <svg id="hamburger_anim" class="ham hamRotate ham1" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-                                <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
-                                <path class="line middle" d="m 30,50 h 40" />
-                                <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
-                            </svg>
-                        </div>
-                        <!-- ==END== Animation for header menu button-->
-                    </nav>
-                </div>
-            </div>
-            <ul class="nav-list-hamburger">
-                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="index.html">HOME</a></li>
-                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">SHOP</a></li>
-                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="forum.html">FORUM</a></li>
-                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">PAGES</a></li>
-                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">CONTACT</a></li>
-            </ul>
-        </div>
-    </header>
-
-=======
 {% block content %}
->>>>>>> 00ef329f07a52a2f852ad236da949f01392b8998
     <section class="forum-intro-section halfscreen">
-        <div class="mouse-parallax">
-            <div class="mouse-parallax-bg"></div>
-            <div class="forum-intro">
-                <div class="forum-intro-flexbox">
-                    <div class="forum-intro-textbox">
-                        <h1>Forum</h1>
-                        <p>Share your thoughts with us</p>
-                    </div>
+        <div class="forum-intro">
+            <div class="forum-intro-flexbox">
+                <div class="forum-intro-textbox">
+                    <h1>Forum</h1>
+                    <p>Share your thoughts with us</p>
                 </div>
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-
-    <section class="forum-body-section">
-        <div class="forum-body">
-            <div class="container">
-                <div class="forum-body-inner">
-                    <div class="right-forum-side">
-                        <div class="right-forum-sidebar-unit">
-                            <div class="forum-unit-info">
-                                <div class="forum-unit-tags">
-                                    Tag, tag, tag, tag, tag,tag, tag
-                                </div>
-                                <ul class="forum-unit-meta">
-                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
-                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> Views <i class="lnr lnr-eye"></i></li>
-                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
-                                </ul>
-                            </div>
-                            <div class="forum-unit-post">
-                                <div class="forum-unit-post-img-background">
-                                    <div class="forum-unit-post-img-blurBackground-box">
-                                        <img class="forum-unit-post-img-blurBackground" src="">
-                                    </div>
-                                    <img class="forum-unit-post-img" src="img/test-photo.jpg" alt="">
-                                </div>
-                                <div class="forum-unit-about-post">
-                                    <h2>We nice to meet you!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a sapien pharetra, sollicitudin urna sed, lobortis ligula. Curabitur pretium risus leo, eu porta est posuere sed. Suspendisse vitae sagittis risus. Vestibulum nisi erat, tempus at pulvinar ac, aliquam vel ipsum. Nam eu felis blandit, pellentesque lorem ac, pulvinar mauris. Nam eu arcu ac metus efficitur congue. Nam suscipit, sapien sed maximus fringilla, dolor metus egestas eros, vel dictum lectus tortor vel eros. </p>
-                                </div>
-                                <div class="forum-unit-post-for-comment">
-                                    <a class="forum-unit-post-vm-button">VIEW MORE</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="right-forum-sidebar-unit">
-                            <div class="forum-unit-info">
-                                <div class="forum-unit-tags">
-                                    Tag, tag, tag, tag, tag,tag, tag
-                                </div>
-                                <ul class="forum-unit-meta">
-                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
-                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> Views <i class="lnr lnr-eye"></i></li>
-                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
-                                </ul>
-                            </div>
-                            <div class="forum-unit-post">
-                                <div class="forum-unit-post-img-background">
-                                    <div class="forum-unit-post-img-blurBackground-box">
-                                        <img class="forum-unit-post-img-blurBackground" src="">
-                                    </div>
-                                    <img class="forum-unit-post-img" src="img/test-photo-2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="left-forum-side">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-	<script type="text/javascript" src="js/jquery.sticky.js"></script>
-    <script type="text/javascript" src="js/slider.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-
-</body>
-
-</html>
-=======
 {% endblock %}
->>>>>>> 00ef329f07a52a2f852ad236da949f01392b8998
