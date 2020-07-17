@@ -4,11 +4,81 @@
 
 {% block content %}
     <section class="forum-intro-section halfscreen">
-        <div class="forum-intro">
-            <div class="forum-intro-flexbox">
-                <div class="forum-intro-textbox">
-                    <h1>Forum</h1>
-                    <p>Share your thoughts with us</p>
+        <div class="mouse-parallax">
+            <div class="mouse-parallax-bg"></div>
+            <div class="forum-intro">
+                <div class="forum-intro-flexbox">
+                    <div class="forum-intro-textbox">
+                        <h1>Forum</h1>
+                        <p>Share your thoughts with us</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-body-section">
+        <div class="forum-body">
+            <div class="container">
+                <div class="forum-body-inner">
+                    <div class="right-forum-side">
+                        <div class="right-forum-sidebar-unit">
+                            <div class="forum-unit-info">
+                                <div class="forum-unit-tags">
+                                    Tag, tag, tag, tag, tag,tag, tag
+                                </div>
+                                <ul class="forum-unit-meta">
+                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
+                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
+                                    <li> Views <i class="lnr lnr-eye"></i></li>
+                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
+                                </ul>
+                            </div>
+                            <div class="forum-unit-post">
+                                <div class="forum-unit-post-img-background">
+                                    <div class="forum-unit-post-img-blurBackground-box">
+                                        <img class="forum-unit-post-img-blurBackground" src="">
+                                    </div>
+                                    <img class="forum-unit-post-img" src="{% static 'img/test-photo.jpg'%}" alt="">
+                                </div>
+                                <div class="forum-unit-about-post">
+                                    <h2>We nice to meet you!</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a sapien pharetra, sollicitudin urna sed, lobortis ligula. Curabitur pretium risus leo, eu porta est posuere sed. Suspendisse vitae sagittis risus. Vestibulum nisi erat, tempus at pulvinar ac, aliquam vel ipsum. Nam eu felis blandit, pellentesque lorem ac, pulvinar mauris. Nam eu arcu ac metus efficitur congue. Nam suscipit, sapien sed maximus fringilla, dolor metus egestas eros, vel dictum lectus tortor vel eros. </p>
+                                </div>
+                                <div class="forum-unit-post-for-comment">
+                                    <a class="forum-unit-post-vm-button">VIEW MORE</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="right-forum-sidebar-unit">
+                            <div class="forum-unit-info">
+                                <div class="forum-unit-tags">
+                                    Tag, tag, tag, tag, tag,tag, tag
+                                </div>
+                                <ul class="forum-unit-meta">
+                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
+                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
+                                    <li> Views <i class="lnr lnr-eye"></i></li>
+                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
+                                </ul>
+                            </div>
+                            <div class="forum-unit-post">
+                                <div class="forum-unit-post-img-background">
+                                    <div class="forum-unit-post-img-blurBackground-box">
+                                        <img class="forum-unit-post-img-blurBackground" src="">
+                                    </div>
+                                    <img class="forum-unit-post-img" src="{% static 'img/test-photo-2.jpg'%}" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="left-forum-side">
+
+                    </div>
                 </div>
             </div>
         </div>
