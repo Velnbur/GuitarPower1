@@ -23,7 +23,6 @@ $(document).ready(function(){
                 mouseport: $('.forum-intro-section'),
                 decay: 0.9
             });
-
         });
     }
 });

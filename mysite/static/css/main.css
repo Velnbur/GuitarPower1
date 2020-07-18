@@ -887,7 +887,7 @@ body {
 
 .forum-unit-post-img-blurBackground {
     position: absolute;
-    filter: blur(10px);
+    filter: blur(20px);
     width: 540px;
     height: 272px;
 }
@@ -938,6 +938,7 @@ body {
     color: black;
     border: 1px solid #eeeeee;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .forum-unit-post-vm-button:hover {
