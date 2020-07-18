@@ -1,5 +1,7 @@
 {% extends 'home.html' %}
 
+{% load static %}
+
 {% block title %} Forum {% endblock %}
 
 {% block content %}
@@ -22,15 +24,16 @@
             <div class="container">
                 <div class="forum-body-inner">
                     <div class="right-forum-side">
+                        {% for i in articles%}
                         <div class="right-forum-sidebar-unit">
                             <div class="forum-unit-info">
                                 <div class="forum-unit-tags">
                                     Tag, tag, tag, tag, tag,tag, tag
                                 </div>
                                 <ul class="forum-unit-meta">
-                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
-                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> Views <i class="lnr lnr-eye"></i></li>
+                                    <li> <a href="#">{{i.author}}</a> <i class="lnr lnr-user"></i></li>
+                                    <li> {{i.date|date:"d N Y" }} <i class="lnr lnr-calendar-full"></i></li>
+                                    <li> {{i.views}} <i class="lnr lnr-eye"></i></li>
                                     <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
                                 </ul>
                             </div>
@@ -39,18 +42,18 @@
                                     <div class="forum-unit-post-img-blurBackground-box">
                                         <img class="forum-unit-post-img-blurBackground" src="">
                                     </div>
-                                    <img class="forum-unit-post-img" src="{% static 'img/test-photo.jpg'%}" alt="">
+                                    <img class="forum-unit-post-img" src="{{i.image.url}}" alt="">
                                 </div>
                                 <div class="forum-unit-about-post">
-                                    <h2>We nice to meet you!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a sapien pharetra, sollicitudin urna sed, lobortis ligula. Curabitur pretium risus leo, eu porta est posuere sed. Suspendisse vitae sagittis risus. Vestibulum nisi erat, tempus at pulvinar ac, aliquam vel ipsum. Nam eu felis blandit, pellentesque lorem ac, pulvinar mauris. Nam eu arcu ac metus efficitur congue. Nam suscipit, sapien sed maximus fringilla, dolor metus egestas eros, vel dictum lectus tortor vel eros. </p>
+                                    <h2> {{i.heading}}</h2>
+                                    <p> {{i.text | safe}} </p>
                                 </div>
                                 <div class="forum-unit-post-for-comment">
-                                    <a class="forum-unit-post-vm-button">VIEW MORE</a>
+                                    <a class="forum-unit-post-vm-button" href="/articles{{i.id}}/">VIEW MORE</a>
                                 </div>
                             </div>
                         </div>
-
+                        {% endfor %}
 
                         <div class="right-forum-sidebar-unit">
                             <div class="forum-unit-info">
