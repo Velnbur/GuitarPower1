@@ -10,6 +10,7 @@ class ArticleModel(models.Model):
     text = models.TextField(max_length=50000, verbose_name='Text', default="Text")
     date = models.DateTimeField(auto_now=True, verbose_name="Date")
     views = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='images/', verbose_name='Изображение', default='images/test-photo.jpg', null=True, blank=True)
     # все нужные поля в таблице для статьи
 
     class Meta:
