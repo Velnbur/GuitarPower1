@@ -62,6 +62,11 @@
                     </div>
                     <div class="left-forum-side">
                         <div class="search-forums">
+                            <form method="post" class = "searchNewsForm">
+                            {%csrf_token%}
+                            {{search_form.search}}
+                            <input type="submit" value="" class = "lnr lnr-magnifier">
+                            </form>
                             <input class="forums-input" onfocus="this.placeholder=''" onblur="this.placeholder='Search Posts'" placeholder="Search Posts">
                             <span>
                                 <a><i class="lnr lnr-magnifier"></i></a>
@@ -72,31 +77,20 @@
                         <div class="todays-top-forum">
                             <h2>Popular Posts</h2>
                             <div class="popular-posts-block">
+                                {% for pop_article in most_popular_articles%}
                                 <div class="popular-post">
                                     <div class="img-box-popular-post">
                                         <div class="popular-post-img-blurBackground-box">
                                             <img class="popular-post-img-blurBackground" src="">
                                         </div>
-                                        <img class="popular-post-img blur-img-background" src="{% static 'img/test-photo.jpg'%}" alt="">
+                                        <img class="popular-post-img blur-img-background" src="{{pop_article.image.url}}" alt="">
                                     </div>
                                     <div class="smthg-about-popular-post">
-                                        <h3>Heading</h3>
-                                        <p>3 hours ago</p>
+                                        <h3>{{pop_article.heading}}</h3>
+                                        <p>{{pop_article.date}}</p>
                                     </div>
                                 </div>
-
-                                <div class="popular-post">
-                                    <div class="img-box-popular-post">
-                                        <div class="popular-post-img-blurBackground-box">
-                                            <img class="popular-post-img-blurBackground" src="">
-                                        </div>
-                                        <img class="popular-post-img blur-img-background" src="{% static 'img/test-photo.jpg'%}" alt="">
-                                    </div>
-                                    <div class="smthg-about-popular-post">
-                                        <h3>Heading</h3>
-                                        <p>3 hours ago</p>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
