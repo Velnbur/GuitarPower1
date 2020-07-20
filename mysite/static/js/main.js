@@ -5,11 +5,11 @@ $(document).ready(function(){
 
     $('.fullscreen').css('height', window.innerHeight);
     $('.halfscreen').css('height', window.innerHeight*0.6);
-/*    var sliderOne = slideShow('.slider', { isAutoplay: true });
-    var sliderOne = slideShow('.comment-article-slider', { isAutoplay: true });*/
+/*    var sliderOne = slideShow('.slider', { isAutoplay: true });*/
+/*    var sliderOne = slideShow('.comment-article-slider', { isAutoplay: true });*/
 
-    if(document.querySelector('.forum-unit-post-img')) {
-        document.querySelectorAll('.forum-unit-post-img').forEach(function(element) {
+    if(document.querySelector('.blur-img-background')) {
+        document.querySelectorAll('.blur-img-background').forEach(function(element) {
             if (element.height >= element.width) {
                 element.style.height = '100%';
                 element.style.width = 'auto';
@@ -23,7 +23,6 @@ $(document).ready(function(){
                 mouseport: $('.forum-intro-section'),
                 decay: 0.9
             });
-
         });
     }
 });

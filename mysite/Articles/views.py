@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils.html import strip_tags
 from .models import ArticleModel, CommentModel
 from .forms import SearchForm, FilterForm
 
@@ -7,6 +8,9 @@ def forum_render(request, num):
     num = num * 10
 
     articles = ArticleModel.objects.all()
+    for i in articles:
+        i.text = strip_tags(i.text)
+
     # иннициализация всех объектов из БД
     search_form = SearchForm(request.POST)
     # иннициализация формы для поиска по ключевому слову

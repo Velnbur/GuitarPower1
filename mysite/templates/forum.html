@@ -5,6 +5,9 @@
 {% block title %} Forum {% endblock %}
 
 {% block content %}
+    <script type="text/javascript" src="{% static 'js/jquery.event.frame.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.parallax.min.js'%}"></script>
+
     <section class="forum-intro-section halfscreen">
         <div class="mouse-parallax">
             <div class="mouse-parallax-bg"></div>
@@ -24,6 +27,7 @@
             <div class="container">
                 <div class="forum-body-inner">
                     <div class="right-forum-side">
+
                         {% for i in articles%}
                         <div class="right-forum-sidebar-unit">
                             <div class="forum-unit-info">
@@ -42,7 +46,7 @@
                                     <div class="forum-unit-post-img-blurBackground-box">
                                         <img class="forum-unit-post-img-blurBackground" src="">
                                     </div>
-                                    <img class="forum-unit-post-img" src="{{i.image.url}}" alt="">
+                                    <img class="forum-unit-post-img blur-img-background" src="{{i.image.url}}" alt="">
                                 </div>
                                 <div class="forum-unit-about-post">
                                     <h2> {{i.heading}}</h2>
@@ -55,32 +59,46 @@
                         </div>
                         {% endfor %}
 
-                        <div class="right-forum-sidebar-unit">
-                            <div class="forum-unit-info">
-                                <div class="forum-unit-tags">
-                                    Tag, tag, tag, tag, tag,tag, tag
-                                </div>
-                                <ul class="forum-unit-meta">
-                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
-                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> Views <i class="lnr lnr-eye"></i></li>
-                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
-                                </ul>
-                            </div>
-                            <div class="forum-unit-post">
-                                <div class="forum-unit-post-img-background">
-                                    <div class="forum-unit-post-img-blurBackground-box">
-                                        <img class="forum-unit-post-img-blurBackground" src="">
+                    </div>
+                    <div class="left-forum-side">
+                        <div class="search-forums">
+                            <input class="forums-input" onfocus="this.placeholder=''" onblur="this.placeholder='Search Posts'" placeholder="Search Posts">
+                            <span>
+                                <a><i class="lnr lnr-magnifier"></i></a>
+                            </span>
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="todays-top-forum">
+                            <h2>Popular Posts</h2>
+                            <div class="popular-posts-block">
+                                <div class="popular-post">
+                                    <div class="img-box-popular-post">
+                                        <div class="popular-post-img-blurBackground-box">
+                                            <img class="popular-post-img-blurBackground" src="">
+                                        </div>
+                                        <img class="popular-post-img blur-img-background" src="{% static 'img/test-photo.jpg'%}" alt="">
                                     </div>
-                                    <img class="forum-unit-post-img" src="{% static 'img/test-photo-2.jpg'%}" alt="">
+                                    <div class="smthg-about-popular-post">
+                                        <h3>Heading</h3>
+                                        <p>3 hours ago</p>
+                                    </div>
+                                </div>
+
+                                <div class="popular-post">
+                                    <div class="img-box-popular-post">
+                                        <div class="popular-post-img-blurBackground-box">
+                                            <img class="popular-post-img-blurBackground" src="">
+                                        </div>
+                                        <img class="popular-post-img blur-img-background" src="{% static 'img/test-photo.jpg'%}" alt="">
+                                    </div>
+                                    <div class="smthg-about-popular-post">
+                                        <h3>Heading</h3>
+                                        <p>3 hours ago</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-                    <div class="left-forum-side">
-
                     </div>
                 </div>
             </div>
