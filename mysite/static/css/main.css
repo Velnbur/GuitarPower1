@@ -10,6 +10,11 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -806,7 +811,7 @@ body {
 .left-forum-side {
     min-height: 100vh;
     width: 350px;
-    padding: 30px 45px 30px 45px;
+    padding: 30px;
     border: 1px solid #eeeeee;
     background: #fafaff;
     margin: 0 15px 0 15px;
@@ -947,6 +952,131 @@ body {
 }
 
 /*========= END right-forum-sidebar =========*/
+
+/*========= START left-forum-sidebar =========*/
+
+.search-forums {
+    font-size: 16px;
+    width: 100%;
+    height: 38px;
+    background: #FF9520;
+    border-radius: 19px;
+    padding: 6px 20px 6px 20px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.forums-input {
+    width: calc(100% - 20px);
+    padding: 0 5px 0 0;
+    background: none;
+    border: none;
+    height: 100%;
+    color: white;
+}
+
+.forums-input::placeholder {
+    color: white;
+    font-size: 14px;
+}
+
+.search-forums a {
+    right: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background: #eeeeee;
+}
+
+.todays-top-forum {
+    margin: 30px 0;
+    width: 100%;
+}
+
+.todays-top-forum h2 {
+    width: 100%;
+    height: 38px;
+    color: white;
+    background: #FF9520;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.popular-posts-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-box-popular-post {
+    display: flex;
+    position: relative;
+    width: 100px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.popular-post-img {
+    position: relative;
+    width: 100%;
+}
+
+.popular-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popular-post-img-blurBackground {
+    position: absolute;
+    filter: blur(5px);
+    width: 100px;
+    height: 60px;
+}
+
+.popular-post-img-blurBackground-box {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.popular-post {
+    display: flex;
+    width: 100%:
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.popular-post:last-child {
+    margin-bottom: 0;
+}
+
+.popular-post h3 {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.popular-post p {
+    font-size: 12px;
+}
+
+.smthg-about-popular-post {
+    padding: 0 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/*========= END left-forum-sidebar =========*/
 
 /*========= END forum body =========*/
 

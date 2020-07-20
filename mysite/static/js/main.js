@@ -8,8 +8,8 @@ $(document).ready(function(){
 /*    var sliderOne = slideShow('.slider', { isAutoplay: true });*/
 /*    var sliderOne = slideShow('.comment-article-slider', { isAutoplay: true });*/
 
-    if(document.querySelector('.forum-unit-post-img')) {
-        document.querySelectorAll('.forum-unit-post-img').forEach(function(element) {
+    if(document.querySelector('.blur-img-background')) {
+        document.querySelectorAll('.blur-img-background').forEach(function(element) {
             if (element.height >= element.width) {
                 element.style.height = '100%';
                 element.style.width = 'auto';
