@@ -27,6 +27,7 @@
             <div class="container">
                 <div class="forum-body-inner">
                     <div class="right-forum-side">
+
                         {% for i in articles%}
                         <div class="right-forum-sidebar-unit">
                             <div class="forum-unit-info">
@@ -56,29 +57,6 @@
                             </div>
                         </div>
                         {% endfor %}
-
-                        <div class="right-forum-sidebar-unit">
-                            <div class="forum-unit-info">
-                                <div class="forum-unit-tags">
-                                    Tag, tag, tag, tag, tag,tag, tag
-                                </div>
-                                <ul class="forum-unit-meta">
-                                    <li> <a href="#">Author</a> <i class="lnr lnr-user"></i></li>
-                                    <li> Date <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> Views <i class="lnr lnr-eye"></i></li>
-                                    <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
-                                </ul>
-                            </div>
-                            <div class="forum-unit-post">
-                                <div class="forum-unit-post-img-background">
-                                    <div class="forum-unit-post-img-blurBackground-box">
-                                        <img class="forum-unit-post-img-blurBackground" src="">
-                                    </div>
-                                    <img class="forum-unit-post-img" src="{% static 'img/test-photo-2.jpg'%}" alt="">
-                                </div>
-                            </div>
-                        </div>
-
 
                     </div>
                     <div class="left-forum-side">

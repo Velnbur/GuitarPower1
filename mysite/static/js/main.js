@@ -5,8 +5,8 @@ $(document).ready(function(){
 
     $('.fullscreen').css('height', window.innerHeight);
     $('.halfscreen').css('height', window.innerHeight*0.6);
-/*    var sliderOne = slideShow('.slider', { isAutoplay: true });
-    var sliderOne = slideShow('.comment-article-slider', { isAutoplay: true });*/
+/*    var sliderOne = slideShow('.slider', { isAutoplay: true });*/
+/*    var sliderOne = slideShow('.comment-article-slider', { isAutoplay: true });*/
 
     if(document.querySelector('.forum-unit-post-img')) {
         document.querySelectorAll('.forum-unit-post-img').forEach(function(element) {
