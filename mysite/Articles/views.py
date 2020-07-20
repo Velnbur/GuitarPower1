@@ -3,7 +3,6 @@ from django.utils.html import strip_tags
 from .models import ArticleModel, CommentModel
 from .forms import SearchForm, FilterForm
 from django.utils import timezone
-from datetime import timedelta
 
 
 def forum_render(request, num):
@@ -11,7 +10,9 @@ def forum_render(request, num):
 
     articles = ArticleModel.objects.all()
     # иннициализация всех объектов из БД
+
     most_popular_articles = articles.order_by('-views')[:5]
+    # иннициализация самых просматриваемых статей
     for article in most_popular_articles:
         date = timezone.now() - article.date
         if date.days != 0:
@@ -31,7 +32,8 @@ def forum_render(request, num):
                 article.date = str(date.seconds//3600) + " hours ago"
             else:
                 article.date = str(date.seconds//60) + " minutes ago"
-    # иннициализация самых просматриваемых статей
+    # вывод времени для популярных статей
+
     search_form = SearchForm(request.POST)
     # иннициализация формы для поиска по ключевому слову
     filter_form = FilterForm(request.POST)
@@ -69,10 +71,11 @@ def forum_render(request, num):
     for i in articles:
         i.text = strip_tags(i.text)
 
+    count = list(range(1, (len(articles) // 10) + 2))
+    # массив с цифрами страниц
+
     articles = articles[num - 10:num]
     # ограничение количества объектов по 10 от num-10 до num
-    count = list(range(1, (len(articles)//10)+1))
-    # массив с цифрами страниц
 
     context = {
         "articles": articles,

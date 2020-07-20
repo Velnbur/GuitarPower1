@@ -59,6 +59,10 @@
                         </div>
                         {% endfor %}
 
+                        {% for i in count %}
+                        <a href="/forum/{{i}}">{{i}}</a>
+                        {% endfor %}
+
                     </div>
                     <div class="left-forum-side">
                         <div class="search-forums">
@@ -66,24 +70,31 @@
                             <span>
                                 <a><i class="lnr lnr-magnifier"></i></a>
                             </span>
+                            <form method="post" class = "">
+                            {%csrf_token%}
+                            {{search_form.search}}
+                            <input type="submit" value="" class = "">
+                            </form>
                         </div>
                         <div class="hr"></div>
 
                         <div class="todays-top-forum">
                             <h3>Popular Posts</h3>
                             <div class="popular-posts-block">
+                                {% for article in most_popular_articles %}
                                 <div class="popular-post">
                                     <div class="img-box-popular-post">
                                         <div class="popular-post-img-blurBackground-box">
                                             <img class="popular-post-img-blurBackground" src="">
                                         </div>
-                                        <img class="popular-post-img blur-img-background" src="{% static 'img/test-photo.jpg'%}" alt="">
+                                        <img class="popular-post-img blur-img-background" src="{{article.image.url}}" alt="">
                                     </div>
                                     <div class="smthg-about-popular-post">
-                                        <h4>Heading</h4>
-                                        <p>3 hours ago</p>
+                                        <h4>{{article.heading}}</h4>
+                                        <p>{{article.date}}</p>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="hr"></div>
