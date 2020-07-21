@@ -60,7 +60,7 @@
                         {% endfor %}
 
                         {% for i in count %}
-                        <a href="/forum/{{i}}">{{i}}</a>
+                        <a href="/forum/{{i}}tag={{tag_name}}">{{i}}</a>
                         {% endfor %}
 
                     </div>
@@ -109,11 +109,9 @@
                         <div class="todays-top-tag">
                             <h3>Most Popular Tag</h3>
                             <div class="popular-tags-block">
-                                <p class="popular-tag">Ololosha</p>
-                                <p class="popular-tag">Olololandra</p>
-                                <p class="popular-tag">Olol</p>
-                                <p class="popular-tag">His brother Olel</p>
-                                <p class="popular-tag">And their sister Olala</p>
+                                {% for tag in tags %}
+                                <a href="/forum/1tag={{tag.tag}}"><p class="popular-tag">#{{tag.tag}}</p></a>
+                                {% endfor %}
                             </div>
                         </div>
 

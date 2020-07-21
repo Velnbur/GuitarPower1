@@ -1,15 +1,18 @@
 from django.shortcuts import render
 from django.utils.html import strip_tags
-from .models import ArticleModel, CommentModel
-from .forms import SearchForm, FilterForm
+from .models import ArticleModel, CommentModel, TagModel
+from .forms import SearchForm
 from django.utils import timezone
 
 
-def forum_render(request, num):
+def forum_render(request, num, tag_name):
     num = num * 10
 
     articles = ArticleModel.objects.all()
     # иннициализация всех объектов из БД
+
+    tags = TagModel.objects.all().order_by('-count_of_uses')
+    # иннициализация самых популярных тегов
 
     most_popular_articles = articles.order_by('-views')[:5]
     # иннициализация самых просматриваемых статей
@@ -36,8 +39,6 @@ def forum_render(request, num):
 
     search_form = SearchForm(request.POST)
     # иннициализация формы для поиска по ключевому слову
-    filter_form = FilterForm(request.POST)
-    # иннициализация формы для фильтрации и сортировки объектов
 
     if request.method == "POST":
         # определение типа http запроса
@@ -47,29 +48,13 @@ def forum_render(request, num):
             articles = articles.filter(text__contains=search)
             # фильтрация объектов по наличию слова из формы
 
-        if filter_form.is_valid():
-            order = filter_form.cleaned_data.get("order_choices")
-            data_from = filter_form.cleaned_data.get("pub_date_from")
-            data_to = filter_form.cleaned_data.get("pub_date_to")
-
-            if data_to:
-                articles = articles.exclude(date__gte=data_to)
-                # фильтрация по дате от данного числа
-
-            if data_from:
-                articles = articles.filter(date__gte=data_from)
-                # фильтрация по дате до данного числа
-
-            if order == 'from_new_to_old':
-                articles = articles[::-1]
-                # сортировка от новых к старым
-
-            if order == 'most_popular':
-                articles = articles.order_by('-views')
-                # сортировка по количеству просмотров
+    if tag_name != '_':
+        articles = articles.filter(tags__tag__exact=tag_name)
+    # вывод статей содержащих определёный тег
 
     for i in articles:
         i.text = strip_tags(i.text)
+    # удаление лишнего  html код
 
     count = list(range(1, (len(articles) // 10) + 2))
     # массив с цифрами страниц
@@ -80,9 +65,10 @@ def forum_render(request, num):
     context = {
         "articles": articles,
         "count": count,
-        "filter_form": filter_form,
         "search_form": search_form,
         "most_popular_articles": most_popular_articles,
+        "tags": tags,
+        "tag_name": tag_name,
     }
 
     return render(request, 'forum.html', context)
