@@ -11,7 +11,7 @@
                 <div class="forum-intro-flexbox">
                     <div class="forum-intro-textbox">
                         <h1>Forum</h1>
-                        <p>Share your thoughts with us</p>
+                        <p>share your thoughts with us</p>
                     </div>
                 </div>
             </div>
@@ -21,6 +21,11 @@
     <section class="forum-body-section">
         <div class="forum-body">
             <div class="container">
+                <div class="forum-da-container">
+                    <div class="top-tag-da">
+
+                    </div>
+                </div>
                 <div class="forum-body-inner">
                     <div class="right-forum-side">
 
@@ -61,7 +66,7 @@
 
                     </div>
                     <div class="left-forum-side">
-                        <form method="post" class="search-forums">
+                        <form data-da="forum-da-container,first,990" method="post" class="search-forums">
                             {%csrf_token%}
                             {{search_form.search}}
                             <button type="submit" class="forum-submit-button">
@@ -101,8 +106,8 @@
                         <div class="hr"></div>
 
                         <div class="todays-top-tag">
-                            <h3>Most Popular Tag</h3>
-                            <div class="popular-tags-block">
+                            <h3 data-da="popular-tags-block,first,990">Most Popular Tag</h3>
+                            <div data-da="top-tag-da,1,990"onload="" class="popular-tags-block">
                                 {% for tag in tags %}
                                 <a href="/forum/1tag={{tag.tag}}" style="text-decoration: none;"><p class="popular-tag">#{{tag.tag}}</p></a>
                                 {% endfor %}
