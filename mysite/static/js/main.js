@@ -17,14 +17,6 @@ $(document).ready(function(){
             element.parentNode.childNodes[1].childNodes[1].src = element.src;
         });
     }
-    if(document.querySelector('.mouse-parallax-bg')) {
-        $(function(){
-            $('.mouse-parallax-bg').parallax({
-                mouseport: $('.forum-intro-section'),
-                decay: 0.9
-            });
-        });
-    }
 });
 
 window.addEventListener("resize", function() {
