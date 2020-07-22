@@ -17,11 +17,15 @@ $(document).ready(function(){
             element.parentNode.childNodes[1].childNodes[1].src = element.src;
         });
     }
-    if(document.querySelector('.mouse-parallax-bg')) {
-        $(function(){
-            $('.mouse-parallax-bg').parallax({
-                mouseport: $('.forum-intro-section'),
-                decay: 0.9
+    if($('.forum-body-section')) {
+        $('.forum-body-section').css('top', window.innerHeight*0.6);
+        $(window).scroll(function(){
+            $('.scroll-effect').bgscroll({
+                direction: 'bottom', // направление bottom или top
+                bgpositionx: 50, // x позиция фонового изображения, от 0 до 100, размерность в %, 50 - означает по центру
+                debug: false, // Режим отладки
+                min:0, // минимальное положение (в %) на которое может смещаться фон
+                max:100 // максимальное положение (в %) на которое может смещаться фон
             });
         });
     }

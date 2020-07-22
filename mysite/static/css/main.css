@@ -825,25 +825,19 @@ footer p {
 /*========= START forum intro =========*/
 
 .forum-intro-section {
-    min-height: 370px;
+    min-height: 376px;
 }
 
-.mouse-parallax {
+.forum {
     height: 100%;
+    width: 100%;
     position: relative;
     overflow: hidden;
-}
-
-.mouse-parallax-bg {
-    position: absolute;
     background: url(../img/intro-background.jpg);
-    width: 110%;
-    height: 110%;
-
 }
 
 .forum-intro {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -852,15 +846,14 @@ footer p {
 
 .forum-intro-flexbox {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 100%;
 }
 
 .forum-intro-textbox {
     text-align: right;
-    margin: 0 30px;
-    margin-top: 50px;
+    margin: 50px 30px 0 500px;
 }
 
 .forum-intro-flexbox h1 {
@@ -898,8 +891,9 @@ footer p {
 
 .forum-body-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
+    padding-bottom: 100px;
 }
 
 .right-forum-side {
@@ -907,6 +901,7 @@ footer p {
     width: 760px;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
 }
 
 .left-forum-side {
@@ -915,14 +910,16 @@ footer p {
     border: 1px solid #eeeeee;
     background: #fafaff;
     margin: 0 15px 0 15px;
+    transition: all 0.5s;
 }
 
 /*========= START right-forum-sidebar =========*/
 
 .right-forum-sidebar-unit {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 100px;
+    transition: all 0.5s;
 }
 
 .forum-unit-info {
@@ -931,6 +928,7 @@ footer p {
     text-align: right;
     width: 190px;
     padding: 30px 15px 0 15px;
+    transition: all 0.5s;
 }
 
 .forum-unit-post {
@@ -938,6 +936,7 @@ footer p {
     padding: 0 15px 0 15px;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
 }
 
 .forum-unit-meta {
@@ -946,6 +945,7 @@ footer p {
 
 .forum-unit-meta li {
     margin: 0 0 10px 0;
+    transition: all 0.5s;
 }
 
 .forum-unit-meta a {
@@ -979,6 +979,7 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s;
 }
 
 .forum-unit-post-img {
@@ -989,8 +990,8 @@ footer p {
 .forum-unit-post-img-blurBackground {
     position: absolute;
     filter: blur(20px);
-    width: 540px;
-    height: 272px;
+    width: 100%;
+    height: 100%;
 }
 
 .forum-unit-post-img-blurBackground-box {
@@ -1005,11 +1006,13 @@ footer p {
     flex-direction: column;
     text-align: left;
     padding: 25px 0 0 0;
+    transition: all 0.5s;
 }
 
 .forum-unit-about-post h2 {
     font-size: 24px;
     font-weight: 700;
+    transition: all 0.5s;
 }
 
 .forum-unit-about-post p {
@@ -1022,6 +1025,7 @@ footer p {
     -webkit-line-clamp: 3;
     line-height: 24px;
     max-height: 72px;
+    transition: all 0.5s;
 }
 
 .forum-unit-post-for-comment {
@@ -1051,11 +1055,42 @@ footer p {
     color: white;
 }
 
+@media(max-width: 1200px) {
+    .right-forum-side {
+        width: 660px;
+    }
+    .forum-unit-post {
+        width: 470px;
+    }
+    .forum-unit-post-img-background {
+        height: 222px;
+    }
+    .forum-unit-about-post p {
+        line-height: 20px;
+    }
+    .forum-unit-about-post {
+        padding: 15px 0 0 0;
+    }
+    .forum-unit-meta li {
+        margin: 0 0 4px 0;
+    }
+    .forum-unit-info{
+        padding: 20px 10px 0 10px;
+    }
+    .left-forum-side {
+        width: 300px;
+    }
+    .img-box-popular-post {
+        width: 82px;
+    }
+}
+
 /*========= END right-forum-sidebar =========*/
 
 /*========= START left-forum-sidebar =========*/
 
 .search-forums {
+    display: flex;
     font-size: 16px;
     width: 100%;
     height: 38px;
@@ -1081,11 +1116,17 @@ footer p {
 }
 
 .search-forums a {
-    right: 5px;
+    position: relative;
+    top: 2px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     width: 20px;
+}
+
+.forum-submit-button {
+    background: none;
+    border: none;
 }
 
 .hr {
@@ -1119,7 +1160,7 @@ footer p {
     display: flex;
     position: relative;
     width: 100px;
-    height: 60px;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -1150,7 +1191,7 @@ footer p {
 
 .popular-post {
     display: flex;
-    width: 100%:
+    width: 100%;
     height: 60px;
     margin-bottom: 15px;
 }
@@ -1175,6 +1216,17 @@ footer p {
     justify-content: center;
 }
 
+.smthg-about-popular-post-heading-box {
+    width: 173px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 30px;
+    transition: all 0.5s;
+}
+
 .add {
     position: relative;
     margin: 30px 0;
@@ -1188,7 +1240,7 @@ footer p {
 
 .todays-top-tag {
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 0 0;
 }
 
 .todays-top-tag h3 {
@@ -1215,6 +1267,8 @@ footer p {
     padding: 0 13px;
     color: black;
     transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
 }
 
 .popular-tag:hover {
@@ -1233,9 +1287,9 @@ footer p {
 
 
 
-@media(max-width: 1219px) {
+@media(max-width: 1300px) {
     .header-inner {
-        max-width: 1250px;
+        max-width: 1300px;
         width: 100%;
     }
 
@@ -1256,6 +1310,49 @@ footer p {
 
 @media(max-width: 992px) {
     .nav-list-hamburger {
+        display: none;
+    }
+}
+
+@media(max-width: 1200px) {
+    .right-forum-side {
+        width: 660px;
+    }
+    .forum-unit-post {
+        width: 470px;
+    }
+    .forum-unit-post-img-background {
+        height: 222px;
+    }
+    .forum-unit-about-post p {
+        line-height: 20px;
+    }
+    .forum-unit-about-post {
+        padding: 15px 0 0 0;
+    }
+    .forum-unit-meta li {
+        margin: 0 0 4px 0;
+    }
+    .forum-unit-info{
+        padding: 20px 10px 0 10px;
+    }
+    .left-forum-side {
+        width: 300px;
+        padding: 15px;
+    }
+    .forum-unit-about-post h2 {
+        font-size: 20px;
+    }
+    .smthg-about-popular-post-heading-box {
+        width: 153px;
+    }
+    .right-forum-sidebar-unit {
+        margin-bottom: 50px;
+    }
+}
+
+@media(max-width: 990px) {
+    .left-forum-side {
         display: none;
     }
 }

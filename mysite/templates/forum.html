@@ -5,12 +5,8 @@
 {% block title %} Forum {% endblock %}
 
 {% block content %}
-    <script type="text/javascript" src="{% static 'js/jquery.event.frame.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.parallax.min.js'%}"></script>
-
     <section class="forum-intro-section halfscreen">
-        <div class="mouse-parallax">
-            <div class="mouse-parallax-bg"></div>
+        <div class="forum">
             <div class="forum-intro">
                 <div class="forum-intro-flexbox">
                     <div class="forum-intro-textbox">
@@ -65,17 +61,13 @@
 
                     </div>
                     <div class="left-forum-side">
-                        <div class="search-forums">
-                            <input class="forums-input" onfocus="this.placeholder=''" onblur="this.placeholder='Search Posts'" placeholder="Search Posts">
-                            <span>
-                                <a><i class="lnr lnr-magnifier"></i></a>
-                            </span>
-                            <form method="post" class = "">
+                        <form method="post" class="search-forums">
                             {%csrf_token%}
                             {{search_form.search}}
-                            <input type="submit" value="" class = "">
-                            </form>
-                        </div>
+                            <button type="submit" class="forum-submit-button">
+                                <a><i class="lnr lnr-magnifier" style="font-weight: 800;"></i></a>
+                            </button>
+                        </form>
                         <div class="hr"></div>
 
                         <div class="todays-top-forum">
@@ -90,7 +82,9 @@
                                         <img class="popular-post-img blur-img-background" src="{{article.image.url}}" alt="">
                                     </div>
                                     <div class="smthg-about-popular-post">
-                                        <h4>{{article.heading}}</h4>
+                                        <div class="smthg-about-popular-post-heading-box">
+                                            <h4>{{article.heading}}</h4>
+                                        </div>
                                         <p>{{article.date}}</p>
                                     </div>
                                 </div>
@@ -110,7 +104,7 @@
                             <h3>Most Popular Tag</h3>
                             <div class="popular-tags-block">
                                 {% for tag in tags %}
-                                <a href="/forum/1tag={{tag.tag}}"><p class="popular-tag">#{{tag.tag}}</p></a>
+                                <a href="/forum/1tag={{tag.tag}}" style="text-decoration: none;"><p class="popular-tag">#{{tag.tag}}</p></a>
                                 {% endfor %}
                             </div>
                         </div>
