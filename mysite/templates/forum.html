@@ -24,16 +24,18 @@
                 <div class="forum-body-inner">
                     <div class="right-forum-side">
 
-                        {% for i in articles%}
+                        {% for article in articles%}
                         <div class="right-forum-sidebar-unit">
                             <div class="forum-unit-info">
                                 <div class="forum-unit-tags">
-                                    Tag, tag, tag, tag, tag,tag, tag
+                                    {% for tag in article.tags.all %}
+                                    <a href="/forum/1tag={{tag.tag}}" style="text-decoration: none;">#{{tag.tag}}</a>
+                                    {% endfor %}
                                 </div>
                                 <ul class="forum-unit-meta">
-                                    <li> <a href="#">{{i.author}}</a> <i class="lnr lnr-user"></i></li>
-                                    <li> {{i.date|date:"d N Y" }} <i class="lnr lnr-calendar-full"></i></li>
-                                    <li> {{i.views}} <i class="lnr lnr-eye"></i></li>
+                                    <li> <a href="#">{{article.author}}</a> <i class="lnr lnr-user"></i></li>
+                                    <li> {{article.date|date:"d N Y" }} <i class="lnr lnr-calendar-full"></i></li>
+                                    <li> {{article.views}} <i class="lnr lnr-eye"></i></li>
                                     <li> <a href="#">Comments</a> <i class="lnr lnr-bubble"></i></li>
                                 </ul>
                             </div>
@@ -42,14 +44,14 @@
                                     <div class="forum-unit-post-img-blurBackground-box">
                                         <img class="forum-unit-post-img-blurBackground" src="">
                                     </div>
-                                    <img class="forum-unit-post-img blur-img-background" src="{{i.image.url}}" alt="">
+                                    <img class="forum-unit-post-img blur-img-background" src="{{article.image.url}}" alt="">
                                 </div>
                                 <div class="forum-unit-about-post">
-                                    <h2> {{i.heading}}</h2>
-                                    <p> {{i.text | safe}} </p>
+                                    <h2> {{article.heading}}</h2>
+                                    <p> {{article.text | safe}} </p>
                                 </div>
                                 <div class="forum-unit-post-for-comment">
-                                    <a class="forum-unit-post-vm-button" href="/articles{{i.id}}/">VIEW MORE</a>
+                                    <a class="forum-unit-post-vm-button" href="/articles{{article.id}}/">VIEW MORE</a>
                                 </div>
                             </div>
                         </div>
