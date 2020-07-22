@@ -6,9 +6,11 @@ class SearchForm(forms.Form):
         label='',
         max_length=100,
         widget=forms.TextInput(attrs={
-            'class': '',
-            'placeholder': 'Search',
-            'autocomplete': 'off'
+            'class': 'forums-input',
+            'placeholder': 'Search Posts',
+            'autocomplete': 'off',
+            'onfocus': 'this.placeholder=""',
+            'onblur': 'this.placeholder="Search Posts"'
         }),
         error_messages={}
     )

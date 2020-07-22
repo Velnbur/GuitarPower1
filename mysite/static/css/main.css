@@ -893,6 +893,7 @@ footer p {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding-bottom: 100px;
 }
 
 .right-forum-side {
@@ -1049,6 +1050,7 @@ footer p {
 /*========= START left-forum-sidebar =========*/
 
 .search-forums {
+    display: flex;
     font-size: 16px;
     width: 100%;
     height: 38px;
@@ -1074,11 +1076,17 @@ footer p {
 }
 
 .search-forums a {
-    right: 5px;
+    position: relative;
+    top: 2px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     width: 20px;
+}
+
+.forum-submit-button {
+    background: none;
+    border: none;
 }
 
 .hr {
@@ -1181,7 +1189,7 @@ footer p {
 
 .todays-top-tag {
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 0 0;
 }
 
 .todays-top-tag h3 {
