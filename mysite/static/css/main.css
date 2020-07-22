@@ -4,7 +4,7 @@ h1 , h2 , h3 , h4 , h5 , h6 , p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Comfortaa', sana-serif;
     color: #222222;
     font-weight: 500;
     line-height: 1;
@@ -864,7 +864,7 @@ footer p {
 
 .forum-intro-flexbox p {
     line-height: 1em;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Comfortaa', cursive;;
     font-weight: 500;
     color: white;
     font-size: 12px;
@@ -940,6 +940,7 @@ footer p {
 
 .forum-unit-meta {
     list-style: none;
+    padding: 0;
 }
 
 .forum-unit-meta li {
@@ -1054,6 +1055,15 @@ footer p {
     color: white;
 }
 
+.forum-unit-tags a {
+    color: black;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.forum-unit-tags a:hover {
+    color: #ffba00;
+}
 
 
 /*========= END right-forum-sidebar =========*/
@@ -1238,7 +1248,7 @@ footer p {
     padding: 0 13px;
     color: black;
     transition: 0.3s;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Comfortaa', cursive;;
     font-size: 12px;
 }
 
