@@ -9,3 +9,4 @@ class ArticleModelAdmin(SummernoteModelAdmin):
 
 admin.site.register(models.ArticleModel, ArticleModelAdmin)
 admin.site.register(models.CommentModel)
+admin.site.register(models.TagModel)

@@ -11,12 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='PageHit',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('views', models.IntegerField(default=0)),
-                ('article', models.OneToOneField(default=0, on_delete=django.db.models.deletion.CASCADE, to='Articles.ArticleModel')),
-            ],
-        ),
+
     ]

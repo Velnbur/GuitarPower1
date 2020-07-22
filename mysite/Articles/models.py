@@ -4,13 +4,30 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class TagModel(models.Model):
+    tag = models.CharField(max_length=50)
+    count_of_uses = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+
+    def __str__(self):
+        return self.tag
+
+
 class ArticleModel(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     heading = models.CharField(max_length=50, verbose_name="Heading", default="Heading")
     text = models.TextField(max_length=50000, verbose_name='Text', default="Text")
     date = models.DateTimeField(auto_now=True, verbose_name="Date")
     views = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='images/', verbose_name='Изображение', default='images/test-photo.jpg', null=True, blank=True)
+    image = models.ImageField(upload_to='images/',
+                              verbose_name='Изображение',
+                              default='images/test-photo.jpg',
+                              null=True,
+                              blank=True)
+    tags = models.ManyToManyField(TagModel, blank=True)
     # все нужные поля в таблице для статьи
 
     class Meta:
