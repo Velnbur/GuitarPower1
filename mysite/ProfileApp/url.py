@@ -9,4 +9,6 @@ urlpatterns = [
          auth_views.LoginView.as_view(template_name="authentication/login.html",
                                       authentication_form=UserLoginForm),
          name='login'),
+    path(r'logout/', views.logout_view),
+    path(r'register/', views.register_view),
 ]
