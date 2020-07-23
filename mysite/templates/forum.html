@@ -126,15 +126,20 @@
                     </div>
                 </div>
                 <div class="pages">
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page previous-page"><span class="lnr lnr-chevron-left"></span></a>
+                    {% if num_2 == 0 %}
+
+                    {% else %}
+                        <a href="/forum/{{num_2}}tag={{tag_name}}" class="im-numberof-page previous-page"><span class="lnr lnr-chevron-left"></span></a>
+                    {% endif %}
                     {% for i in count %}
                     <!--<a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">{{i}}</a>-->
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page active">01</a>
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">02</a>
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">03</a>
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">04</a>
+                        {% if num == i %}
+                            <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page active">0{{i}}</a>
+                        {% else %}
+                            <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">0{{i}}</a>
+                        {% endif %}
                     {% endfor %}
-                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page next-page"><span class="lnr lnr-chevron-right"></span></a>
+                    <a href="/forum/{{num_1}}tag={{tag_name}}" class="im-numberof-page next-page"><span class="lnr lnr-chevron-right"></span></a>
                 </div>
             </div>
         </div>

@@ -62,6 +62,8 @@ def forum_render(request, num, tag_name):
     articles = articles[num - 10:num]
     # ограничение количества объектов по 10 от num-10 до num
 
+    num = num // 10
+
     context = {
         "articles": articles,
         "count": count,
@@ -69,6 +71,9 @@ def forum_render(request, num, tag_name):
         "most_popular_articles": most_popular_articles,
         "tags": tags,
         "tag_name": tag_name,
+        "num": num,
+        "num_1": num+1,
+        "num_2": num-1
     }
 
     return render(request, 'forum.html', context)
