@@ -768,7 +768,7 @@ footer p {
 }
 
 .footer-newsletter {
-    width: 380px;
+    width: 280px;
     padding: 0 15px;
 }
 
@@ -852,7 +852,14 @@ footer p {
 
 .forum-intro-textbox {
     text-align: right;
-    margin: 50px 30px 0 500px;
+    margin: 50px 30px 0 40%;
+    transition: all 0.5s;
+}
+
+@media(max-width: 800px) {
+    .forum-intro-textbox {
+        margin: 50px 0 0 0;
+    }
 }
 
 .forum-intro-flexbox h1 {
@@ -944,6 +951,7 @@ footer p {
 .forum-unit-meta {
     list-style: none;
     padding: 0;
+    transition: all 0.5s;
 }
 
 .forum-unit-meta li {
@@ -1018,6 +1026,10 @@ footer p {
     transition: all 0.5s;
 }
 
+.forum-unit-tags {
+    transition: all 0.5s;
+}
+
 .forum-unit-about-post p {
     margin-top: 10px;
     width: 100%;
@@ -1031,8 +1043,62 @@ footer p {
     transition: all 0.5s;
 }
 
+.im-casefor-tags {
+    display: none;
+    flex-wrap: wrap;
+    font-size: 12px;
+    margin: 8px 0 0 0;
+    transition: all 0.5s;
+}
+
+.im-casefor-post-info {
+    display: none;
+    justify-content: flex-end;
+    margin-top: 8px;
+    transition: all 0.5s;
+}
+
+.im-casefor-post-info span {
+    margin: 0 20px 0 0;
+}
+
+.im-casefor-post-info a {
+    transition: all 0.5s;
+    text-decoration: none;
+    color: #777777;
+}
+
+.im-casefor-post-info i {
+    color: black;
+    margin: 0 0 0 5px;
+    font-weight: 600;
+}
+
+@media(max-width: 780px) {
+    .im-casefor-tags {
+        display: flex;
+    }
+    .im-casefor-tags .forum-unit-tags {
+        display: block;
+    }
+    .forum-unit-tags {
+        display: none;
+    }
+    .forum-unit-about-post p {
+        margin-top: 4px;
+    }
+    .forum-unit-info {
+        display: none;
+    }
+    .im-casefor-post-info {
+        display: flex;
+    }
+    .forum-unit-post {
+        width: 98%;
+    }
+}
+
 .forum-unit-post-for-comment {
-    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1051,6 +1117,7 @@ footer p {
     border: 1px solid #eeeeee;
     transition: 0.3s;
     text-decoration: none;
+    margin-top: 30px;
 }
 
 .forum-unit-post-vm-button:hover {
