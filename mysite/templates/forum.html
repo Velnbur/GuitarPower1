@@ -10,7 +10,7 @@
             <div class="forum-intro">
                 <div class="forum-intro-flexbox">
                     <div class="forum-intro-textbox">
-                        <h1>Forum</h1>
+                        <h1>ForuM</h1>
                         <p>share your thoughts with us</p>
                     </div>
                 </div>
@@ -51,9 +51,21 @@
                                     </div>
                                     <img class="forum-unit-post-img blur-img-background" src="{{article.image.url}}" alt="">
                                 </div>
+                                <div class="im-casefor-post-info">
+                                    <span> <a href="#">{{article.author}}</a> <i class="lnr lnr-user"></i></span>
+                                    <span> {{article.date|date:"d N Y" }} <i class="lnr lnr-calendar-full"></i></span>
+                                    <span> {{article.views}} <i class="lnr lnr-eye"></i></span>
+                                </div>
                                 <div class="forum-unit-about-post">
                                     <h2> {{article.heading}}</h2>
                                     <p> {{article.text | safe}} </p>
+                                    <div class="im-casefor-tags">
+                                        <div class="forum-unit-tags">
+                                            {% for tag in article.tags.all %}
+                                            <a href="/forum/1tag={{tag.tag}}">#{{tag.tag}}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="forum-unit-post-for-comment">
                                     <a class="forum-unit-post-vm-button" href="/articles{{article.id}}/">VIEW MORE</a>
