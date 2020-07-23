@@ -726,13 +726,20 @@ body {
 /*-=-=-=-=-=-=-=-= START footer =-=-=-=-=-=-=-=-*/
 
 footer {
-    height: 476px;
+    min-height: 476px;
     background: #222222;
     width: 100%;
     display: flex;
     justify-content: center;
     line-height: 24px;
     padding: 100px 0;
+    transition: all 0.5s;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s;
 }
 
 footer p {
@@ -750,7 +757,7 @@ footer p {
 .footer-instagram-photo-box {
     display: flex;
     flex-wrap: wrap;
-    width: 285px;
+    width: 272px;
 }
 
 .footer-about-us {
@@ -813,6 +820,24 @@ footer p {
     width: 190px;
     padding: 0 15px;
 }
+
+.follow-us-container {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.follow-us-container i {
+    color: white;
+    transition: all 0.5s;
+}
+
+.follow-us-container i:hover {
+    color: #ffba00;
+}
+
+
+
 
 /*-=-=-=-=-=-=-=-= END footer =-=-=-=-=-=-=-=-*/
 
@@ -1406,12 +1431,56 @@ footer p {
     }
 }
 
+@media(max-width: 1090px) {
+    .footer-container {
+        display: flex;
+    }
+    footer {
+        flex-direction: column;
+    }
+    .footer-about-us {
+        width: 285px;
+        margin: 15px;
+    }
+    .footer-newsletter {
+        width: 285px;
+        margin: 15px;
+    }
+    .footer-instagram-feed {
+        width: 285px;
+        margin: 15px;
+    }
+    .footer-follow-us {
+        width: 285px;
+        margin: 15px;
+    }
+}
+
+@media(max-width: 650px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media(max-width: 990px) {
     .nav-list {
         display: none;
     }
     .hamburger-button {
         display: block;
+    }
+    .footer-about-us {
+        text-align: center;
+    }
+    .footer-newsletter {
+        text-align: center;
+    }
+    .footer-instagram-feed {
+        text-align: center;
+    }
+    .footer-follow-us {
+        text-align: center;
     }
 }
 
