@@ -62,10 +62,6 @@
                         </div>
                         {% endfor %}
 
-                        {% for i in count %}
-                        <a href="/forum/{{i}}tag={{tag_name}}">{{i}}</a>
-                        {% endfor %}
-
                     </div>
                     <div class="left-forum-side">
                         <form data-da="forum-da-container,first,990" method="post" class="search-forums">
@@ -115,8 +111,18 @@
                                 {% endfor %}
                             </div>
                         </div>
-
                     </div>
+                </div>
+                <div class="pages">
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page previous-page"><span class="lnr lnr-chevron-left"></span></a>
+                    {% for i in count %}
+                    <!--<a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">{{i}}</a>-->
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page active">01</a>
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">02</a>
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">03</a>
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page">04</a>
+                    {% endfor %}
+                    <a href="/forum/{{i}}tag={{tag_name}}" class="im-numberof-page next-page"><span class="lnr lnr-chevron-right"></span></a>
                 </div>
             </div>
         </div>

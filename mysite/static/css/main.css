@@ -892,7 +892,6 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-bottom: 100px;
 }
 
 .right-forum-side {
@@ -919,6 +918,10 @@ footer p {
     justify-content: center;
     margin-bottom: 100px;
     transition: all 0.5s;
+}
+
+.right-forum-sidebar-unit:last-child {
+    margin-bottom: 70px;
 }
 
 .forum-unit-info {
@@ -1278,6 +1281,43 @@ footer p {
     margin: 0 auto;
     max-width: 600px;
     margin: 8px auto 30px auto;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 0 100px 0;
+}
+
+.im-numberof-page {
+    display: block;
+    width: 32px;
+    height: 32px;
+    line-height: 33px;
+    color: #8a8a8a;
+    text-align: center;
+    background: white;
+    text-decoration: none;
+    transition: all 0.5s ease-in;
+}
+
+.im-numberof-page.active {
+    background: #ffba00;
+    color: white;
+}
+
+.im-numberof-page:hover {
+    background: #ffba00;
+    color: white;
+}
+
+.previous-page {
+    margin-right: 20px;
+}
+
+.next-page {
+    margin-left: 20px;
 }
 
 /*========= END forum body =========*/
