@@ -23,6 +23,14 @@ class UserLoginForm(AuthenticationForm):
             'onblur': 'this.placeholder="Пароль"'
         }),
         label='')
+    '''
+    checkbox = forms.ChoiceField(
+        widget=forms.CheckboxInput(attrs={
+            'class': "login-checkbox",
+            'id': "f_option",
+        })
+    )
+    '''
 
 
 class RegistrationForm(UserCreationForm):
