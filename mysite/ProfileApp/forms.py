@@ -9,15 +9,19 @@ class UserLoginForm(AuthenticationForm):
 
     username = forms.CharField(
         widget=forms.TextInput(attrs={
-            'class': '',
-            'placeholder': 'Enter Username'}
-        ),
+            'class': 'login-input',
+            'placeholder': 'Логин',
+            'onfocus': 'this.placeholder=""',
+            'onblur': 'this.placeholder="Логин"'
+        }),
         label='')
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            'class': '',
-            'placeholder': 'Enter Password'}
-        ),
+            'class': 'login-input',
+            'placeholder': 'Пароль',
+            'onfocus': 'this.placeholder=""',
+            'onblur': 'this.placeholder="Пароль"'
+        }),
         label='')
 
 
