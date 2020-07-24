@@ -1,25 +1,37 @@
 {% extends 'home.html' %}
+{% load static %}
 
 {% block title %}Registration{% endblock %}
 
 {% block content %}
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<form action="" method="post" class = "contactForm">
-    {% csrf_token %}
-    {% for form in registration_form %}
-    {{form.error}}
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-    <p>{{form}}</p>
-    {% endfor %}
-    <p align = "center"><input type="submit" value="REGISTER" class = "contactButton"></p>
-</form>
+<section class="registration-section">
+    <div class="registration">
+        <div class="registration-inner">
+            <div class="registration-area">
+                <div class="registration-form-container">
+                    <h2>Регистрация</h2>
+                    <form action="" method="post" class="registration-form">
+                        {% csrf_token %}
+                        {% for form in registration_form %}
+                        {{form.error}}
+                        {% if form.errors %}
+                        <p class="registration-error">Your username and password didn't match. Please try again.</p>
+                        {% endif %}
+                        {{form}}
+                        {% endfor %}
+                        <button type="submit" class="registration-button">Зарегестрироваться</button>
+                    </form>
+                </div>
+            </div>
+            <img src="{% static 'img/registration.jpg' %}" alt="" class="registration-img">
+            <div class="registration-img-panel">
+                <div class="registration-img-panel-inner">
+                    <h2>Уже есть аккаунт?</h2>
+                    <a href="/profile/login/">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

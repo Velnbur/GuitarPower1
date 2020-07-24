@@ -1501,7 +1501,7 @@ footer p {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
 }
 
-.form-container {
+.login-form-container {
     width: 385px;
     height: 100%;
     margin: 0 auto;
@@ -1512,7 +1512,7 @@ footer p {
     padding: 0 15px;
 }
 
-.form-container h2 {
+.login-form-container h2 {
     margin: 0 0 30px 0;
 }
 
@@ -1557,7 +1557,7 @@ footer p {
     filter: brightness(70%);
 }
 
-.form-container a {
+.login-form-container a {
     margin: 20px 0 0 0;
     cursor: pointer;
     text-decoration: none;
@@ -1576,11 +1576,165 @@ footer p {
     margin: 15px 0 30px 0;
 }
 
+
 /*========= END login body =========*/
 
 /*-=-=-=-=-=-=-=-= END login file =-=-=-=-=-=-=-=-*/
 
 
+
+/*-=-=-=-=-=-=-=-= START registration file =-=-=-=-=-=-=-=-*/
+
+/*========= START registration body =========*/
+
+.registration-section {
+    margin: 200px 0 100px 0;
+    width: 100%;
+}
+
+.registration {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.registration-inner {
+    display: flex;
+    position: relative;
+}
+
+.registration-img {
+    width: 50%;
+    margin: 0 15px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    filter: brightness(50%);
+}
+
+.registration-img-panel {
+    position: absolute;
+    width: 50%;
+    margin: 0 15px 0 0;
+    right: 0;
+    height: 100%;
+}
+
+.registration-img-panel-inner {
+    margin: 0 auto;
+    width: 385px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+.registration-img-panel-inner h2 {
+    color: white;
+}
+
+.registration-img-panel-inner a {
+    width: 180px;
+    text-decoration: none;
+    margin: 15px 0;
+    height: 38px;
+    line-height: 38px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-weight: 500;
+    color: white;
+    background: #ffba00;
+    transition: all 0.3s;
+    text-align: center;
+    font-family: 'Comfortaa';
+    cursor: pointer;
+}
+
+.registration-img-panel-inner a:hover {
+    background: #ff9520;
+}
+
+.registration-img-panel-inner a:active {
+    filter: brightness(70%);
+}
+
+.registration-area {
+    width: 50%;
+    margin: 0 0 0 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+}
+
+.registration-form-container {
+    width: 385px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.registration-form-container h2 {
+    margin: 0 0 30px 0;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.registration-input {
+    height: 38px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    font-family: Arial;
+    font-weight: 500;
+    color: #495057;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    margin: 0 0 16px 0;
+}
+
+.registration-error {
+    color: red;
+    font-size: 13px;
+}
+
+.registration-button {
+    margin-top: 10px;
+    width: 100%;
+    line-height: 38px;
+    height: 38px;
+    border: none;
+    font-size: 1rem;
+    font-family: Arial;
+    font-weight: 500;
+    color: white;
+    background: #ffba00;
+    transition: all 0.3s;
+    font-family: 'Comfortaa';
+    cursor: pointer;
+}
+
+.registration-button:hover {
+    background: #ff9520;
+}
+
+.registration-button:active {
+    filter: brightness(70%);
+}
+
+.registration-form-container a {
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*========= END registration body =========*/
+
+/*-=-=-=-=-=-=-=-= END registration file =-=-=-=-=-=-=-=-*/
 
 
 @media(max-width: 1300px) {
