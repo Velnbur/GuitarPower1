@@ -5,18 +5,11 @@ from .forms import SearchForm
 from django.utils import timezone
 
 
-def forum_render(request, num, tag_name):
-    num = num * 10
-
-    articles = ArticleModel.objects.all()
-    # иннициализация всех объектов из БД
-
-    tags = TagModel.objects.all().order_by('-count_of_uses')
-    # иннициализация самых популярных тегов
-
-    most_popular_articles = articles.order_by('-views')[:5]
-    # иннициализация самых просматриваемых статей
-    for article in most_popular_articles:
+def date_out(articles):
+    '''
+    Выводит в формате строки время прошедшее с момента создания статьи
+    '''
+    for article in articles:
         date = timezone.now() - article.date
         if date.days != 0:
             if date.days // 7 != 0:
@@ -35,6 +28,27 @@ def forum_render(request, num, tag_name):
                 article.date = str(date.seconds//3600) + " hours ago"
             else:
                 article.date = str(date.seconds//60) + " minutes ago"
+    return articles
+
+
+'''
+Вьюшки страниц
+'''
+
+
+def forum_render(request, num, tag_name):
+    num = num * 10
+
+    articles = ArticleModel.objects.all()
+    # иннициализация всех объектов из БД
+
+    tags = TagModel.objects.all().order_by('-count_of_uses')
+    # иннициализация самых популярных тегов
+
+    most_popular_articles = articles.order_by('-views')[:5]
+    # иннициализация самых просматриваемых статей
+
+    most_popular_articles = date_out(most_popular_articles)
     # вывод времени для популярных статей
 
     search_form = SearchForm(request.POST)
@@ -73,7 +87,8 @@ def forum_render(request, num, tag_name):
         "tag_name": tag_name,
         "num": num,
         "num_1": num+1,
-        "num_2": num-1
+        "num_2": num-1,
+        "len_count": len(count),
     }
 
     return render(request, 'forum.html', context)
@@ -86,7 +101,7 @@ def article_render(request, num):
 
     articles.views += 1
     articles.save()
-    # увеличение просмотров на 1 и сохранение его в БД
+    # увеличение просмотров на 1 и сохранение числа в БД
 
     context = {
         "article": articles,
