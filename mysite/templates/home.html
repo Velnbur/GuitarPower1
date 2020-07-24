@@ -35,7 +35,9 @@
                             <li class="nav-item"><a class="nav-link" href="">SHOP</a></li>
                             <li class="nav-item"><a class="nav-link" href="/forum/1tag=_">FORUM</a></li>
                             <li class="nav-item"><a class="nav-link" href="">PAGES</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/profile">LOGIN</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/profile">{% if user.is_authenticated %}PROFILE {% else %} LOGIN {% endif %}
+                            </a></li>
+
                         </ul>
                         <!-- ==START== Animation for header menu button-->
                         <div class="hamburger-button" onclick="hamburger()">
