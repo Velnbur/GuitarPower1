@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import RegistrationForm
+from .forms import RegistrationForm, UserLoginForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth import views as auth_views
 
 
 @login_required
@@ -40,3 +41,12 @@ def register_view(request):
         "registration_form": registration_form,
     }
     return render(request, 'authentication/registration.html', context)
+
+'''
+class CheckBoxLoginView(auth_views.LoginView):
+    template_name = "authentication/login.html"
+    authentication_form = UserLoginForm
+
+    if authentication_form.check_test:
+        set_expiry()
+'''

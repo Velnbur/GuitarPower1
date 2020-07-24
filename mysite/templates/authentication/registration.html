@@ -13,9 +13,10 @@
                     <form action="" method="post" class="registration-form">
                         {% csrf_token %}
                         {% for form in registration_form %}
-                        {{form.error}}
-                        {% if form.errors %}
-                        <p class="registration-error">Your username and password didn't match. Please try again.</p>
+                        {% if form.errors and form == registration_form.username%}
+                        <p class="registration-error">Это имя пользователя уже занято. Попробуйте что-то другое</p>
+                        {% elif form.errors and form == registration_form.password2%}
+                        <p class="registration-error">Ваши пароли не совпадают, либо ваш пароль слишком простой и совпадает с вашой почтой. Попробуйте ввести его еще раз</p>
                         {% endif %}
                         {{form}}
                         {% endfor %}
