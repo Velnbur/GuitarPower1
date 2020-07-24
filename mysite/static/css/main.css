@@ -1284,6 +1284,7 @@ footer p {
 .popular-post h4 {
     margin-bottom: 4px;
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .popular-post p {
@@ -1417,9 +1418,25 @@ footer p {
     margin-left: 20px;
 }
 
-im-numberof-page .next-page.inactive:hover {
+.im-numberof-page.previous-page.inactive:hover, .im-numberof-page.next-page.inactive:hover {
     background: white;
     color: #8a8a8a;
+}
+
+.forum-da-container-popular-post {
+    display: none;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #eeeeee;
+    background: #fafaff;
+    margin: 0 15px 0 15px;
+    transition: all 0.5s;
+}
+
+@media(max-width: 990px) {
+    .forum-da-container-popular-post {
+        display: block;
+    }
 }
 
 

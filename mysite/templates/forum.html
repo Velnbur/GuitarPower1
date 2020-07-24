@@ -85,7 +85,7 @@
                         </form>
                         <div class="hr"></div>
 
-                        <div class="todays-top-forum">
+                        <div data-da="forum-da-container-popular-post, first, 990" class="todays-top-forum">
                             <h3>Popular Posts</h3>
                             <div class="popular-posts-block">
                                 {% for article in most_popular_articles %}
@@ -124,6 +124,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="forum-da-container-popular-post">
+
                 </div>
                 <div class="pages">
                     {% if num_2 == 0 %}
