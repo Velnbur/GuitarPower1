@@ -727,6 +727,8 @@ body {
 /*-=-=-=-=-=-=-=-= START footer =-=-=-=-=-=-=-=-*/
 
 footer {
+    bottom: 0;
+    position: relative;
     min-height: 476px;
     background: #222222;
     width: 100%;
@@ -758,7 +760,8 @@ footer p {
 .footer-instagram-photo-box {
     display: flex;
     flex-wrap: wrap;
-    width: 272px;
+    justify-content: space-between;
+    width: 285px;
 }
 
 .footer-about-us {
@@ -783,7 +786,7 @@ footer p {
 .footer-input {
     height: 38px;
     background: white;
-    width: 80%;
+    width: calc(100% - 38px);
     border: none;
     padding: 6px 20px;
 }
@@ -1426,7 +1429,7 @@ footer p {
 /*========= START login body =========*/
 
 .login-section {
-    margin: 200px 0 100px 0;
+    margin: 150px 0 100px 0;
     width: 100%;
 }
 
@@ -1439,38 +1442,39 @@ footer p {
 .login-inner {
     display: flex;
     position: relative;
+    margin: 0 15px;
+    transition: all 0.5s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .login-img {
-    width: 50%;
-    margin: 0 0 0 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
     filter: brightness(50%);
 }
 
-.login-img-panel {
-    position: absolute;
+.login-img-container {
+    position: relative;
     width: 50%;
-    margin: 0 0 0 15px;
-    height: 100%;
+    transition: all 0.5s;
 }
 
-.login-img-panel-inner {
-    margin: 0 auto;
-    width: 385px;
+.login-img-panel {
+    top: 0;
+    position: absolute;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 15px;
 }
 
-.login-img-panel-inner h2 {
+.login-img-panel h2 {
     color: white;
 }
 
-.login-img-panel-inner a {
+.login-img-panel a {
     width: 180px;
     text-decoration: none;
     margin: 15px 0;
@@ -1487,18 +1491,18 @@ footer p {
     cursor: pointer;
 }
 
-.login-img-panel-inner a:hover {
+.login-img-panel a:hover {
     background: #ff9520;
 }
 
-.login-img-panel-inner a:active {
+.login-img-panel a:active {
     filter: brightness(70%);
 }
 
 .login-area {
+    position: relative;
     width: 50%;
-    margin: 0 15px 0 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+    transition: all 0.5s;
 }
 
 .login-form-container {
@@ -1601,26 +1605,25 @@ footer p {
 .registration-inner {
     display: flex;
     position: relative;
+    margin: 0 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .registration-img {
-    width: 50%;
-    margin: 0 15px 0 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
     filter: brightness(50%);
 }
 
-.registration-img-panel {
-    position: absolute;
+.registration-img-container {
+    position: relative;
     width: 50%;
-    margin: 0 15px 0 0;
-    right: 0;
-    height: 100%;
 }
 
-.registration-img-panel-inner {
-    margin: 0 auto;
-    width: 385px;
+.registration-img-panel {
+    top: 0;
+    position: absolute;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -1629,11 +1632,11 @@ footer p {
     padding: 0 15px;
 }
 
-.registration-img-panel-inner h2 {
+.registration-img-panel h2 {
     color: white;
 }
 
-.registration-img-panel-inner a {
+.registration-img-panel a {
     width: 180px;
     text-decoration: none;
     margin: 15px 0;
@@ -1650,17 +1653,16 @@ footer p {
     cursor: pointer;
 }
 
-.registration-img-panel-inner a:hover {
+.registration-img-panel a:hover {
     background: #ff9520;
 }
 
-.registration-img-panel-inner a:active {
+.registration-img-panel a:active {
     filter: brightness(70%);
 }
 
 .registration-area {
     width: 50%;
-    margin: 0 0 0 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
 }
 
@@ -1732,6 +1734,25 @@ footer p {
     text-decoration: none;
 }
 
+@media(max-width: 1000px) {
+    .login-inner {
+        flex-direction: column;
+        margin: 0 30px;
+    }
+    .registration-inner {
+        flex-direction: column-reverse;
+        margin: 0 30px;
+    }
+    .login-area, .login-img-container,
+    .registration-area, .registration-img-container {
+        width: 100%;
+    }
+
+    .login-area, .registration-area {
+        padding: 100px 0;
+    }
+}
+
 /*========= END registration body =========*/
 
 /*-=-=-=-=-=-=-=-= END registration file =-=-=-=-=-=-=-=-*/
@@ -1750,6 +1771,7 @@ footer p {
 @media(max-width: 1090px) {
     .footer-container {
         display: flex;
+        align-items: center;
     }
     footer {
         flex-direction: column;
@@ -1777,15 +1799,6 @@ footer p {
         flex-direction: column;
         align-items: center;
     }
-}
-
-@media(max-width: 990px) {
-    .nav-list {
-        display: none;
-    }
-    .hamburger-button {
-        display: block;
-    }
     .footer-about-us {
         text-align: center;
     }
@@ -1797,6 +1810,25 @@ footer p {
     }
     .footer-follow-us {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-instagram-photo {
+        width: 52px;
+        height: 52px;
+    }
+    .footer-instagram-photo-box {
+        width: 255px;
+    }
+}
+
+@media(max-width: 990px) {
+    .nav-list {
+        display: none;
+    }
+    .hamburger-button {
+        display: block;
     }
 }
 
