@@ -21,6 +21,8 @@ def logout_view(request):
 
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('/profile/')
     if request.method == "POST":
         registration_form = RegistrationForm(request.POST)
 
