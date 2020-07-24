@@ -36,38 +36,50 @@ class UserLoginForm(AuthenticationForm):
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(
         widget=(forms.TextInput(attrs={
-            "placeholder": "Enter Email",
-            'class': ''
+            'class': 'registration-input',
+            'placeholder': 'Email',
+            'onfocus': 'this.placeholder=""',
+            'onblur': 'this.placeholder="Email"'
         })))
     username = forms.CharField(
         widget=(forms.TextInput(
             attrs={
-                "placeholder": "Enter Username",
-                'class': ''
+                'class': 'registration-input',
+                'placeholder': 'Логин',
+                'onfocus': 'this.placeholder=""',
+                'onblur': 'this.placeholder="Логин"'
             })))
     first_name = forms.CharField(
         widget=(forms.TextInput(
             attrs={
-                "placeholder": "Enter Name",
-                'class': ''
+                'class': 'registration-input',
+                'placeholder': 'Имя',
+                'onfocus': 'this.placeholder=""',
+                'onblur': 'this.placeholder="Имя"'
             })))
     last_name = forms.CharField(
         widget=(forms.TextInput(
             attrs={
-                "placeholder": "Enter Surname",
-                'class': ''
+                'class': 'registration-input',
+                'placeholder': 'Фамилия',
+                'onfocus': 'this.placeholder=""',
+                'onblur': 'this.placeholder="Фамилия"'
             })))
     password1 = forms.CharField(
         widget=(forms.PasswordInput(
             attrs={
-                "placeholder": "Enter Password",
-                'class': ''
+                'class': 'registration-input',
+                'placeholder': 'Пароль',
+                'onfocus': 'this.placeholder=""',
+                'onblur': 'this.placeholder="Пароль"'
             })))
     password2 = forms.CharField(
         widget=(forms.PasswordInput(
             attrs={
-                "placeholder": "Enter Password Again",
-                'class': ''
+                'class': 'registration-input',
+                'placeholder': 'Введите пароль ещё раз',
+                'onfocus': 'this.placeholder=""',
+                'onblur': 'this.placeholder="Введите пароль ещё раз"'
             })))
 
     class Meta:
