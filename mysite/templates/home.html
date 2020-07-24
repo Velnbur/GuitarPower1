@@ -209,38 +209,45 @@
     {% endblock %}
 
     <footer>
-        <div class="footer-about-us">
-            <h6 class="footer-h6">About Us</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-        </div>
+        <div class="footer-container">
+            <div class="footer-about-us">
+                <h6 class="footer-h6">About Us</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+            </div>
 
-        <div class="footer-newsletter">
-            <h6 class="footer-h6">Newsletter</h6>
-            <p>Stay update with our latest</p>
-            <form class="footer-form">
-                <input type="text" class="footer-input" placeholder="Enter Email" onfocus="this.placeholder=''" onblur="this.placeholder='Enter Emaill'">
-                <button type="submit"><i class="fa fa-long-arrow-right"></i></button>
-            </form>
-        </div>
-
-        <div class="footer-instagram-feed">
-            <h6 class="footer-h6">Instagram Feed</h6>
-            <div class="footer-instagram-photo-box">
-                <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
-                <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+            <div class="footer-newsletter">
+                <h6 class="footer-h6">Newsletter</h6>
+                <p>Stay update with our latest</p>
+                <form class="footer-form">
+                    <input type="text" class="footer-input" placeholder="Enter Email" onfocus="this.placeholder=''" onblur="this.placeholder='Enter Emaill'">
+                    <button type="submit"><i class="fa fa-long-arrow-right"></i></button>
+                </form>
             </div>
         </div>
+        <div class="footer-container">
+            <div class="footer-instagram-feed">
+                <h6 class="footer-h6">Instagram Feed</h6>
+                <div class="footer-instagram-photo-box">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                </div>
+            </div>
 
-        <div class="footer-follow-us">
-            <h6 class="footer-h6">Follow Us</h6>
-            <div class="footer-instagram-photo-box">
-
+            <div class="footer-follow-us">
+                <h6 class="footer-h6">Follow Us</h6>
+                <p>Let us be social</p>
+                <div class="follow-us-container">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-vk"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </footer>
