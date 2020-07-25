@@ -1,4 +1,7 @@
 from django import forms
+from django.forms import ModelForm
+from django_summernote.widgets import SummernoteWidget
+from .models import ArticleModel
 
 
 class SearchForm(forms.Form):
@@ -14,3 +17,11 @@ class SearchForm(forms.Form):
         }),
         error_messages={}
     )
+
+
+class ArticleForm(ModelForm):
+    text = forms.CharField(widget=SummernoteWidget())
+
+    class Meta:
+        model = ArticleModel
+        fields = ['text', 'heading', 'image']

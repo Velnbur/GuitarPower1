@@ -6,5 +6,22 @@
 
 <p>{{user.username}}</p>
 <p>{{user.email}}</p>
+<p>{{user.first_name}}</p>
+<p>{{user.last_name}}</p>
+<form method="post" enctype='multipart/form-data'>
+    {%csrf_token%}
+    {%if profile.birth_date != NULL %}
+    <p>{{profile.birth_date}}</p>
+    {%else%}
+    <p>{{profile_form.birth_date}}</p>
+    {%endif%}
+    {% if profile.about_myself %}
+    <p>{{profile.about_myself}}</p>
+    {% else %}
+    <p>{{profile_form.about_myself}}</p>
+    {% endif %}
+    <p>{{profile_form.face_image}}</p>
+    <p align="center"><input type="submit" value="SUBMIT" class = "contactButton"></p>
+</form>
 <p><a href="/profile/logout/">LOGOUT</a></p>
 {% endblock %}

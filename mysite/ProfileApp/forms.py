@@ -1,11 +1,10 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from . models import ProfileModel
 
 
-class UserLoginForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super(UserLoginForm, self).__init__(*args, **kwargs)
+class UserLoginForm(forms.Form):
 
     username = forms.CharField(
         widget=forms.TextInput(attrs={
@@ -23,14 +22,13 @@ class UserLoginForm(AuthenticationForm):
             'onblur': 'this.placeholder="Пароль"'
         }),
         label='')
-    '''
-    checkbox = forms.ChoiceField(
+    remember_me = forms.BooleanField(
         widget=forms.CheckboxInput(attrs={
             'class': "login-checkbox",
             'id': "f_option",
-        })
+        }),
+        required=False
     )
-    '''
 
 
 class RegistrationForm(UserCreationForm):
@@ -102,3 +100,17 @@ class RegistrationForm(UserCreationForm):
             user.save()
 
         return user
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = ProfileModel
+        fields = ('birth_date', 'face_image', 'about_myself')
+
+    birth_date = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class': '',
+                'placeholder': ''}),
+        label='',
+        required=False)

@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -117,7 +116,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -134,3 +133,15 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 LOGIN_REDIRECT_URL = "/profile/"
 LOGIN_URL = "/profile/login"
+
+# Keep me logged settings
+KEEP_LOGGED_KEY = 'keep_me_logged'
+KEEP_LOGGED_DURATION = 365 # in days
+
+# data input formats
+DATE_INPUT_FORMATS = ('%d-%m-%Y', '%d/%m/%Y', '%d/%m/%y', '%d %b %Y',
+                      '%d %b, %Y', '%d %b %Y', '%d %b, %Y', '%d %B, %Y',
+                      '%d %B %Y')
+DATETIME_INPUT_FORMATS = ('%d/%m/%Y %H:%M:%S', '%d/%m/%Y %H:%M', '%d/%m/%Y',
+                          '%d/%m/%y %H:%M:%S', '%d/%m/%y %H:%M', '%d/%m/%y',
+                          '%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M', '%Y-%m-%d')
