@@ -16,13 +16,29 @@ from django.contrib.auth.models import User
 @login_required
 def profile_render(request):
     if request.method == 'POST':
+        # проверка на тип http запроса
+
         user = request.user
-        profile_form = ProfileForm(request.POST, instance=user.profilemodel)
+        # иннициализация модели пользевателя
+
+        profile_form = ProfileForm(request.POST, request.FILES, instance=user.profilemodel)
+        # иннициализация формы профиля
         profile = ProfileModel.objects.get(user__exact=user.id)
+        # модель профиля
+
         if profile_form.is_valid():
             post = profile_form.save(commit=False)
+            birth_date = profile_form.cleaned_data['birth_date']
+            if profile.birth_date:
+                post.birth_date = profile.birth_date
+            elif birth_date == '':
+                post.birth_date = None
+            if profile.about_myself:
+                post.about_myself = profile.about_myself
             post.user = user
             post.save()
+            # если форма заполнена праивльно,
+            # то она сохраняется в модель с соответствующим пользователем в параметре user
             return redirect('/profile/')
     else:
         user = request.user
@@ -45,10 +61,15 @@ def login_view(request):
             password = form.cleaned_data['password']
             remember_me = form.cleaned_data['remember_me']
             user = authenticate(username=username, password=password)
+            # аутентификация пользевателя по данным параметрам из формы
             if user is not None:
+                # если такой пользеватель существует,
                 login(request, user)
+                # происходит авторизация
                 if not remember_me:
+                    # если пользеваетль не поставил галочку на 'Запомнить меня'
                     request.session.set_expiry(0)
+                    # выводит данные пользевателя из куки файлов
                 return redirect('/profile/')
     else:
         form = UserLoginForm()
@@ -89,6 +110,7 @@ def register_view(request):
             })
             to_email = registration_form.cleaned_data.get('email')
             send_mail(mail_subject, message, 'pguitarpower@gmail.com', [to_email])
+            return render(request, 'authentication/check_email_template.html', {})
 
     else:
         registration_form = RegistrationForm()

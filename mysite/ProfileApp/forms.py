@@ -111,6 +111,7 @@ class ProfileForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'class': '',
-                'placeholder': ''}),
+                'placeholder': 'Birth Date'}),
         label='',
         required=False)
+    face_image = forms.ImageField(required=False)
