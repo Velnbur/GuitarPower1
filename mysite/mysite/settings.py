@@ -145,3 +145,17 @@ DATE_INPUT_FORMATS = ('%d-%m-%Y', '%d/%m/%Y', '%d/%m/%y', '%d %b %Y',
 DATETIME_INPUT_FORMATS = ('%d/%m/%Y %H:%M:%S', '%d/%m/%Y %H:%M', '%d/%m/%Y',
                           '%d/%m/%y %H:%M:%S', '%d/%m/%y %H:%M', '%d/%m/%y',
                           '%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M', '%Y-%m-%d')
+
+# настройки хоста для електроной почты
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pguitarpower@gmail.com'
+EMAIL_HOST_PASSWORD = '/951/project'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
+'''
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+'''
