@@ -1880,6 +1880,32 @@ footer p {
 /*-=-=-=-=-=-=-=-= END registration file =-=-=-=-=-=-=-=-*/
 
 
+/*-=-=-=-=-=-=-=-= START profile file =-=-=-=-=-=-=-=-*/
+
+/*========= START profile body =========*/
+
+.profile-section {
+    width: 100%;
+    margin: 150px 0 0 0;
+}
+
+.profile {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.profile-inner {
+    display: flex;
+}
+
+/*========= END profile body =========*/
+
+/*-=-=-=-=-=-=-=-= END profile file =-=-=-=-=-=-=-=-*/
+
+
 @media(max-width: 1300px) {
     .header-inner {
         max-width: 1300px;
