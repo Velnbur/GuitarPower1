@@ -107,11 +107,13 @@ class ProfileForm(forms.ModelForm):
         model = ProfileModel
         fields = ('birth_date', 'face_image', 'about_myself')
 
-    birth_date = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                'class': '',
-                'placeholder': 'Birth Date'}),
-        label='',
-        required=False)
-    face_image = forms.ImageField(required=False)
+    birth_date = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                               'placeholder': 'Birth Date'}),
+                                 label='',
+                                 required=False)
+    face_image = forms.ImageField(widget=forms.FileInput(attrs={'class': '',
+                                                                'placeholder':''}),
+                                  required=False)
+    about_myself = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                                 'placeholder': ''}),
+                                   required=False)
