@@ -11,7 +11,7 @@ class ProfileModel(models.Model):
                                    default='icons/FACE_ICON.png',
                                    blank=True,
                                    null=True,)
-    birth_date = models.DateField(null=True, blank=True, default='')
+    birth_date = models.DateField(null=True, blank=True, default=None)
     about_myself = models.TextField(null=True, blank=True)
 
     class Meta:
