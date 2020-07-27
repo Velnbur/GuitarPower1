@@ -19,7 +19,7 @@ def profile_render(request):
         # проверка на тип http запроса
 
         user = request.user
-        # иннициализация модели пользевателя
+        # иннициализация модели пользователя
 
         profile_form = ProfileForm(request.POST, request.FILES, instance=user.profilemodel)
         # иннициализация формы профиля
@@ -37,7 +37,7 @@ def profile_render(request):
                 post.about_myself = profile.about_myself
             post.user = user
             post.save()
-            # если форма заполнена праивльно,
+            # если форма заполнена правильно,
             # то она сохраняется в модель с соответствующим пользователем в параметре user
             return redirect('/profile/')
     else:
@@ -61,15 +61,15 @@ def login_view(request):
             password = form.cleaned_data['password']
             remember_me = form.cleaned_data['remember_me']
             user = authenticate(username=username, password=password)
-            # аутентификация пользевателя по данным параметрам из формы
+            # аутентификация пользователя по данным параметрам из формы
             if user is not None:
-                # если такой пользеватель существует,
+                # если такой пользователь существует,
                 login(request, user)
                 # происходит авторизация
                 if not remember_me:
-                    # если пользеваетль не поставил галочку на 'Запомнить меня'
+                    # если пользоваетль не поставил галочку на 'Запомнить меня'
                     request.session.set_expiry(0)
-                    # выводит данные пользевателя из куки файлов
+                    # выводит данные пользователя из куки файлов
                 return redirect('/profile/')
     else:
         form = UserLoginForm()
@@ -79,16 +79,16 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    # функция разлогинивания пользевателя
+    # функция разлогинивания пользователя
     return redirect('/profile/login')
 
 
 def register_view(request):
     if request.user.is_authenticated:
-        # проверка на аутентификатор пользевателя
+        # проверка на аутентификатор пользователя
 
         return redirect('/profile/')
-        # если пользеватель уже ввошел в аккаунт или уже зарегистрирован, то перекидывает на страничку профиля
+        # если пользователь уже ввошел в аккаунт или уже зарегистрирован, то перекидывает на страничку профиля
 
     if request.method == "POST":
         # проверка на тип http запроса
