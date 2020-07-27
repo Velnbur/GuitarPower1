@@ -112,8 +112,9 @@ class ProfileForm(forms.ModelForm):
                                  label='',
                                  required=False)
     face_image = forms.ImageField(widget=forms.FileInput(attrs={'class': '',
-                                                                'placeholder':''}),
+                                                                'placeholder': ''}),
                                   required=False)
-    about_myself = forms.CharField(widget=forms.TextInput(attrs={'class': '',
-                                                                 'placeholder': ''}),
+    about_myself = forms.CharField(widget=forms.Textarea(attrs={'class': '',
+                                                                 'placeholder': '',
+                                                                'value': ''}),
                                    required=False)
