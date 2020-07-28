@@ -1,5 +1,7 @@
 {% extends 'home.html' %}
 
+{% load static %}
+
 <!--{% block title %}Profile{% endblock %}-->
 
 {% block content %}
@@ -7,7 +9,63 @@
 <section class="profile-section">
     <div class="profile">
         <div class="profile-inner">
-            .about-profile
+            <div class="profile-right-sidebar">
+                <div class="about-account-2">
+                    <div class="profile-publications-comments">
+                        <p>Публикации</p>
+                        <p>Отзывы</p>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-left-sidebar">
+                <div class="profile-img-container">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="profile-img">
+                </div>
+                <div class="account-name">
+                    <p class="profile-first-last-name">
+                        <span class="profile-user-active"></span>
+                        <span class="profile-user-inactive"></span>
+                        <span></span>
+                        {{user.first_name}} {{user.last_name}}
+                    </p>
+                    <p class="profile-username">{{user.username}}</p>
+                </div>
+                <div class="about-account">
+                    <div class="about-me">
+                        <p class="about-account-unit">О себе <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <p class="about-account-text">Вы ничего не рассказали о себе</p>
+                    </div>
+                    <div class="about-me-container">
+                        <p class="about-account-unit">Успешные заказы <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <p class="about-account-text">0</p>
+                    </div>
+                    <div class="about-me-container">
+                        <p class="about-account-unit">Рейтинг <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <p class="about-account-text">0</p>
+                    </div>
+                    <div class="about-me-container">
+                        <p class="about-account-unit">Активность <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <p class="about-account-text">30.02.2021 16:32</p>
+                    </div>
+                    <div class="about-me-container">
+                        <p class="about-account-unit">Дата регистрации <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <p class="about-account-text">01.09.1542</p>
+                    </div>
+                    <div class="connection-with-me">
+                        <p class="about-account-unit">Связь cо мной<!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                        <div class="profile-connection-with-me-container">
+                            <i class="fa fa-profile fa-facebook-square" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-odnoklassniki-square" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-telegram" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-twitter" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-vk" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-whatsapp" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-instagram" aria-hidden="true"></i>
+                            <i class="fa fa-profile fa-envelope" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

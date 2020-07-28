@@ -71,6 +71,20 @@ if (document.querySelectorAll('.flying-inscription')) {
     });
 }
 
+/*function showTextarea(event) {
+    var textarea = event.target.parentNode.parentNode.childNodes[5];
+    var p = event.target.parentNode.parentNode.childNodes[3];
+
+    if(textarea.style.display == 'none') {
+        textarea.style.display="block";
+        if(p.value){textarea.value = p.value;}
+    }
+    else {
+        textarea.style.display="none";
+        if(textarea.value){p.value = textarea.value;}
+    }
+}*/
+
 
 /*
 function headerAnimation() {

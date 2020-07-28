@@ -4,7 +4,7 @@ h1 , h2 , h3 , h4 , h5 , h6 , p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Comfortaa';
+    font-family: 'Montserrat Alternates', sans-serif;
 /*    font-family: 'Inter', sans-serif;;*/
     color: #222222;
     font-weight: 500;
@@ -911,14 +911,14 @@ footer p {
 
 .forum-intro-flexbox h1 {
     line-height: 0.7em;
-    font-weight: 900;
+    font-weight: 500;
     color: white;
     font-size: 7em;
 }
 
 .forum-intro-flexbox p {
     line-height: 1em;
-    font-family: 'Comfortaa', cursive;;
+    font-family: 'Montserrat Alternates', sans-serif, cursive;;
     font-weight: 500;
     color: white;
     font-size: 12px;
@@ -1069,7 +1069,7 @@ footer p {
 
 .forum-unit-about-post h2 {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.5s;
 }
 
@@ -1368,7 +1368,7 @@ footer p {
     padding: 0 13px;
     color: black;
     transition: 0.3s;
-    font-family: 'Comfortaa', cursive;;
+    font-family: 'Montserrat Alternates', sans-serif, cursive;;
     font-size: 12px;
 }
 
@@ -1530,7 +1530,7 @@ footer p {
     background: #ffba00;
     transition: all 0.3s;
     text-align: center;
-    font-family: 'Comfortaa';
+    font-family: 'Montserrat Alternates', sans-serif;
     cursor: pointer;
 }
 
@@ -1592,7 +1592,7 @@ footer p {
     color: white;
     background: #ffba00;
     transition: all 0.3s;
-    font-family: 'Comfortaa';
+    font-family: 'Montserrat Alternates', sans-serif;
     cursor: pointer;
 }
 
@@ -1771,7 +1771,7 @@ footer p {
     background: #ffba00;
     transition: all 0.3s;
     text-align: center;
-    font-family: 'Comfortaa';
+    font-family: 'Montserrat Alternates', sans-serif;
     cursor: pointer;
 }
 
@@ -1838,7 +1838,7 @@ footer p {
     color: white;
     background: #ffba00;
     transition: all 0.3s;
-    font-family: 'Comfortaa';
+    font-family: 'Montserrat Alternates', sans-serif;
     cursor: pointer;
 }
 
@@ -1901,6 +1901,197 @@ footer p {
 .profile-inner {
     display: flex;
     justify-content: center;
+}
+
+.profile-left-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 15px 0 15px;
+    width: 315px;
+    height: 700px;
+    border: 1px solid #eeeeee;
+    padding: 10px;
+}
+
+.profile-right-sidebar {
+    width: 795px;
+    height: 700px;
+    margin: 20px 0 0 15px;
+}
+
+.profile-img-container {
+    width: 270px;
+    height: 235px;
+    background: none;
+}
+
+.profile-img {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    bottom: 35px;
+    border: 10px solid white;
+    border-radius: 10px;
+}
+
+.account-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+.profile-username {
+    font-size: 12px;
+}
+
+.profile-first-last-name {
+    font-family: 'Montserrat Alternates', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: black;
+    margin: 3px 0 0 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profile-user-active {
+    position: absolute;
+    left: -18px;
+    margin: 0 5px 0 0;
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    border: 1px solid #00ff00;
+}
+
+.profile-user-inactive {
+    position: absolute;
+    left: -18px;
+    margin: 0 5px 0 0;
+    width: 8px;
+    height: 8px;
+    background: none;
+    border-radius: 50%;
+    border: 1px solid #00ff00;
+}
+
+.about-account {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.about-me {
+    width: 100%;
+    text-align: left;
+    padding: 0 20px;
+    margin: 0 0 20px 0;
+}
+
+.about-account-unit {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 600;
+    color: black;
+}
+
+.about-me-container {
+    margin: 10px 0 0 0;
+    display: flex;
+    width: 100%;
+    text-align: left;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.about-me-textarea {
+    resize: none;
+    width: calc(100% - 30px);
+    border: none;
+    overflow: scroll;
+    margin: 0 15px;
+    display: none;
+}
+
+.about-me-textarea::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.lnr-pencil-about-account {
+    margin: 0 0 0 5px;
+    font-weight: 900 !important;
+    cursor: pointer;
+}
+
+.lnr-pencil-about-account:hover {
+    color: #ffba00;
+}
+
+.about-account-text {
+    margin: 5px 0 0 0;
+}
+
+.about-account-2 {
+    display: flex;
+    justify-content: flex-start;
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    border: 1px solid #eeeeee;
+    height: 50px;
+}
+
+.profile-publications-comments {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.connection-with-me {
+    width: 100%;
+    text-align: left;
+    padding: 0 20px;
+    margin: 20px 0 0 0;
+}
+
+.profile-connection-with-me-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.fa-profile {
+    line-height: 20px !important;
+    font-size: 20px !important;
+    color: #464646;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.fa-profile:hover {
+    color: #ffba00;
+}
+
+.profile-publications-comments p {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+    color: #464646;
+    font-weight: 600;
+    margin: 0 15px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.profile-publications-comments p::after {
+    width: 20px;
+    height: 2px;
+    content: '';
+    background: black;
 }
 
 /*========= END profile body =========*/
