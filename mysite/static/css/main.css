@@ -1886,12 +1886,13 @@ footer p {
 
 .profile-section {
     width: 100%;
-    margin: 150px 0 0 0;
+    margin: 180px 0 0 0;
 }
 
 .profile {
     width: 100%;
     max-width: 1140px;
+    min-height: 1000px;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 15px;
@@ -1899,6 +1900,7 @@ footer p {
 
 .profile-inner {
     display: flex;
+    justify-content: center;
 }
 
 /*========= END profile body =========*/
