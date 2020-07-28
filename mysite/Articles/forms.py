@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django_summernote.widgets import SummernoteWidget
-from .models import ArticleModel
+from .models import ArticleModel, CommentModel, CommentAnswerModel
 
 
 class SearchForm(forms.Form):
@@ -25,3 +25,23 @@ class ArticleForm(ModelForm):
     class Meta:
         model = ArticleModel
         fields = ['text', 'heading', 'image']
+
+
+class CommentForm(ModelForm):
+    text = forms.CharField(widget=forms.Textarea(attrs={'class': '',
+                                                        'placeholder': '',
+                                                        }))
+
+    class Meta:
+        model = CommentModel
+        fields = ['text']
+
+
+class CommentAnswerForm(ModelForm):
+    text = forms.CharField(widget=forms.Textarea(attrs={'class': '',
+                                                        'placeholder': '',
+                                                        }))
+
+    class Meta:
+        model = CommentAnswerModel
+        fields = ['text']
