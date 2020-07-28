@@ -2083,16 +2083,68 @@ footer p {
     color: #464646;
     font-weight: 600;
     margin: 0 15px;
-    padding: 5px 0;
     cursor: pointer;
+    line-height: 46px;
+    border-bottom: 0px solid #464646;
+    background: transparent;
 }
 
-.profile-publications-comments p::after {
-    width: 20px;
-    height: 2px;
-    content: '';
-    background: black;
+.profile-publications-comments p:hover {
+    border-bottom: 2px solid #464646
 }
+
+.profile-publications-comments p.active {
+    border-bottom: 2px solid #ffba00;
+}
+
+.profile-publications {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 30px);
+    margin: 30px 15px 30px 15px;
+    height: 2000px;
+}
+
+.profile-publication-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-publication-container {
+    width: 100%;
+}
+
+.profile-publication-img-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.publication-blurImg-container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-blur-img {
+    width: 100%;
+    height: 100%;
+    filter: blur(20px);
+    position: absolute;
+}
+
+.profile-publication-img {
+    width: 100%;
+    position: relative;
+}
+
 
 /*========= END profile body =========*/
 
