@@ -53,3 +53,17 @@ class CommentModel(models.Model):
     def __str__(self):
         return "Коментарий %s" % self.author + " к %s" % self.article_to
     # Как будут отображаться коментарии в админке
+
+
+class CommentAnswerModel(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Author", null=True)
+    comment_to = models.ForeignKey(CommentModel, verbose_name='Comment to', on_delete=models.CASCADE, null=True)
+    text = models.TextField(max_length=5000, verbose_name='Comment Answer Text', default="")
+    date = models.DateTimeField(auto_now=True, verbose_name="Date")
+
+    class Meta:
+        verbose_name = 'Comment Answer'
+        verbose_name_plural = 'Comment Answers'
+
+    def __str__(self):
+        return "Comment %s" % self.author + " to %s" % self.comment_to

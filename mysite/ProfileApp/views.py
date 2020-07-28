@@ -33,8 +33,8 @@ def profile_render(request):
                 post.birth_date = profile.birth_date
             elif birth_date == '':
                 post.birth_date = None
-            if profile.about_myself:
-                post.about_myself = profile.about_myself
+            if post.about_myself == '':
+                post.about_myself = None
             post.user = user
             post.save()
             # если форма заполнена правильно,
@@ -44,6 +44,7 @@ def profile_render(request):
         user = request.user
         profile_form = ProfileForm(instance=user.profilemodel)
         profile = ProfileModel.objects.get(user__exact=user.id)
+        profile_form.fields['about_myself'].widget.attrs['value'] = profile.about_myself
 
     context = {
         'user': user,
@@ -62,10 +63,12 @@ def login_view(request):
             remember_me = form.cleaned_data['remember_me']
             user = authenticate(username=username, password=password)
             # аутентификация пользователя по данным параметрам из формы
+
             if user is not None:
                 # если такой пользователь существует,
                 login(request, user)
                 # происходит авторизация
+
                 if not remember_me:
                     # если пользоваетль не поставил галочку на 'Запомнить меня'
                     request.session.set_expiry(0)

@@ -103,6 +103,7 @@ class RegistrationForm(UserCreationForm):
 
 
 class ProfileForm(forms.ModelForm):
+
     class Meta:
         model = ProfileModel
         fields = ('birth_date', 'face_image', 'about_myself')
