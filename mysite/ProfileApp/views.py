@@ -53,8 +53,6 @@ def profile_render(request):
     for i in articles:
         i.text = strip_tags(i.text)
 
-    print(profile.date_registration)
-
     context = {
         'user': user,
         'profile': profile,
