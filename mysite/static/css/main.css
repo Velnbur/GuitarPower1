@@ -1892,7 +1892,7 @@ footer p {
 .profile {
     width: 100%;
     max-width: 1140px;
-    min-height: 1000px;
+    min-height: 1000px;;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 15px;
@@ -1901,6 +1901,7 @@ footer p {
 .profile-inner {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .profile-left-sidebar {
@@ -1909,14 +1910,12 @@ footer p {
     align-items: center;
     margin: 20px 15px 0 15px;
     width: 315px;
-    height: 700px;
     border: 1px solid #eeeeee;
     padding: 10px;
 }
 
 .profile-right-sidebar {
     width: 795px;
-    height: 700px;
     margin: 20px 0 0 15px;
 }
 
@@ -2043,6 +2042,11 @@ footer p {
     height: 50px;
 }
 
+.profile-connection-with-me-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .profile-publications-comments {
     display: flex;
     width: 100%;
@@ -2066,7 +2070,7 @@ footer p {
     line-height: 20px !important;
     font-size: 20px !important;
     color: #464646;
-    margin: 5px;
+    margin: 3px;
     width: 25px;
     height: 25px;
     transition: 0.5s;
@@ -2099,10 +2103,17 @@ footer p {
 
 .profile-publications {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: calc(100% - 30px);
     margin: 30px 15px 30px 15px;
-    height: 2000px;
+    max-height: 1000px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.profile-publications::-webkit-scrollbar {
+    display: none;
 }
 
 .profile-publication-container {
@@ -2110,6 +2121,7 @@ footer p {
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    margin: 0 0 80px 0;
 }
 
 .profile-publication-container {
@@ -2143,6 +2155,65 @@ footer p {
 .profile-publication-img {
     width: 100%;
     position: relative;
+}
+
+.about-profile-publication {
+    display: flex;
+    margin: 8px 0 0 0;
+    color: #777777;
+    justify-content: flex-end;
+}
+
+.about-profile-publication a {
+    text-decoration: none;
+    color: #777777;
+}
+
+.about-profile-publication i {
+    margin: 0 15px 0 7px;
+    font-weight: 600;
+    color: black;
+}
+
+.profile-publication-text h2 {
+    margin: 15px 0 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+
+.profile-publication-text p {
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-height: 24px;
+    max-height: 72px;
+    transition: all 0.5s;
+}
+
+.profile-publication-button {
+    display: inline-block;
+    padding: 2px 30px;
+    line-height: 34px;
+    height: 38px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: black;
+    border: 1px solid #eeeeee;
+    transition: 0.3s;
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+.profile-publication-button:hover {
+    background: #ffba00;
+    color: white;
 }
 
 
