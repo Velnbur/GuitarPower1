@@ -13,6 +13,7 @@ class ProfileModel(models.Model):
                                    null=True,)
     birth_date = models.DateField(null=True, blank=True, default=None)
     about_myself = models.TextField(null=True, blank=True)
+    date_registration = models.DateTimeField(null=True, auto_now_add=True)
 
     class Meta:
         verbose_name = 'Профиль'
