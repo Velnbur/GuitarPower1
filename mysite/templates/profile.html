@@ -105,11 +105,6 @@
     <p>Something went wrong</p>
     {% endif %}
 
-    {%if profile.birth_date != NULL %}
-    <p>{{profile.birth_date}}<button>Change</button></p>
-    {%else%}
-    <p>{{profile_form.birth_date}}</p>
-    {%endif%}
 
     {% if profile.about_myself %}
     <p>{{profile.about_myself}}<button>Change</button></p>
