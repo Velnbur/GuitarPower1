@@ -50,7 +50,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ProfileApp.middleware.ActiveUserMiddleware',
 ]
+
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:8000',
+        }
+    }
+
+USER_ONLINE_TIMEOUT = 300
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
+
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')

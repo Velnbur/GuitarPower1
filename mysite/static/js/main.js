@@ -71,6 +71,15 @@ if (document.querySelectorAll('.flying-inscription')) {
     });
 }
 
+function profileHideActive(event) {
+    if(!event.target.classList.value) {
+        document.querySelectorAll('.profile-publications-comments p').forEach(obj => {
+            obj.classList.value = '';
+        });
+        event.target.classList.value = 'active';
+    }
+}
+
 /*function showTextarea(event) {
     var textarea = event.target.parentNode.parentNode.childNodes[5];
     var p = event.target.parentNode.parentNode.childNodes[3];
