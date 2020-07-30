@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from .forms import RegistrationForm, UserLoginForm, ProfileForm
 from .models import ProfileModel
+from Articles.models import  ArticleModel
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, login, authenticate
 from django.template.loader import render_to_string
@@ -10,6 +11,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .token import account_activation_token
 from django.utils.encoding import force_bytes, force_text
 from django.core.mail import send_mail
+from django.utils.html import strip_tags
 from django.contrib.auth.models import User
 
 
@@ -25,6 +27,7 @@ def profile_render(request):
         # иннициализация формы профиля
         profile = ProfileModel.objects.get(user__exact=user.id)
         # модель профиля
+        articles = ArticleModel.objects.all().filter(author__exact=profile.user)
 
         if profile_form.is_valid():
             post = profile_form.save(commit=False)
@@ -45,11 +48,16 @@ def profile_render(request):
         profile_form = ProfileForm(instance=user.profilemodel)
         profile = ProfileModel.objects.get(user__exact=user.id)
         profile_form.fields['about_myself'].widget.attrs['value'] = profile.about_myself
+        articles = ArticleModel.objects.all().filter(author__exact=profile.user)
+
+    for i in articles:
+        i.text = strip_tags(i.text)
 
     context = {
         'user': user,
         'profile': profile,
         'profile_form': profile_form,
+        'my_articles': articles,
     }
     return render(request, 'profile.html', context)
 

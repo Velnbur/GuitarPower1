@@ -17,96 +17,41 @@
                     </div>
                 </div>
                 <div class="profile-publications">
+                    {% for article in my_articles %}
                     <div class="profile-publication-container">
                         <div class="profile-publication-img-container">
                             <div class="publication-blurImg-container">
                                 <img class="publication-blur-img" src="">
                             </div>
-                            <img class="profile-publication-img blur-img-background" src="{% static 'img/test-photo-2.jpg' %}" alt="" style="height: 100%; width: auto;">
+                            <img class="profile-publication-img blur-img-background" src="{{article.image.url}}" alt="" style="height: 100%; width: auto;">
                         </div>
                         <div class="about-profile-publication">
-                            <a href="">OmegaTymbJIep<i class="lnr lnr-user"></i></a>
-                            <p>27 July 2020<i class="lnr lnr-calendar-full"></i></p>
-                            <p>-1<i class="lnr lnr-eye"></i></p>
+                            <a href="">{{article.author}}<i class="lnr lnr-user"></i></a>
+                            <p>{{article.date|date:" d M Y"}}<i class="lnr lnr-calendar-full"></i></p>
+                            <p>{{article.views}}<i class="lnr lnr-eye"></i></p>
                         </div>
                         <div class="profile-publication-text">
-                            <h2>Ололо ло оло ололо лоло ол лол</h2>
-                            <p>Lorem ipsum dolo dolor sit amet, consectetur adipiscing elit. Etiam malesuada accumsan elit bibendum consectetur. Nulla in enim ac nisl cursus vestibulum ut sit amet est. Donec sit amet libero quis mi euismod porttitor. Nulla elit ligula, condimentu</p>
+                            <h2>{{article.heading}}</h2>
+                            <p>{{article.text | safe}}</p>
                         </div>
                         <div class="profile-publication-button-container">
-                            <a class="profile-publication-button" href="/forum/articles2/">VIEW MORE</a>
+                            <a class="profile-publication-button" href="/forum/articles{{article.id}}/">VIEW MORE</a>
                         </div>
                     </div>
-                    <div class="profile-publication-container">
-                        <div class="profile-publication-img-container">
-                            <div class="publication-blurImg-container">
-                                <img class="publication-blur-img" src="">
-                            </div>
-                            <img class="profile-publication-img blur-img-background" src="{% static 'img/test-photo-2.jpg' %}" alt="" style="height: 100%; width: auto;">
-                        </div>
-                        <div class="about-profile-publication">
-                            <a href="">OmegaTymbJIep<i class="lnr lnr-user"></i></a>
-                            <p>27 July 2020<i class="lnr lnr-calendar-full"></i></p>
-                            <p>-1<i class="lnr lnr-eye"></i></p>
-                        </div>
-                        <div class="profile-publication-text">
-                            <h2>Ололо ло оло ололо лоло ол лол</h2>
-                            <p>Lorem ipsum dolo dolor sit amet, consectetur adipiscing elit. Etiam malesuada accumsan elit bibendum consectetur. Nulla in enim ac nisl cursus vestibulum ut sit amet est. Donec sit amet libero quis mi euismod porttitor. Nulla elit ligula, condimentu</p>
-                        </div>
-                        <div class="profile-publication-button-container">
-                            <a class="profile-publication-button" href="/forum/articles2/">VIEW MORE</a>
-                        </div>
-                    </div>
-                    <div class="profile-publication-container">
-                        <div class="profile-publication-img-container">
-                            <div class="publication-blurImg-container">
-                                <img class="publication-blur-img" src="">
-                            </div>
-                            <img class="profile-publication-img blur-img-background" src="{% static 'img/test-photo-2.jpg' %}" alt="" style="height: 100%; width: auto;">
-                        </div>
-                        <div class="about-profile-publication">
-                            <a href="">OmegaTymbJIep<i class="lnr lnr-user"></i></a>
-                            <p>27 July 2020<i class="lnr lnr-calendar-full"></i></p>
-                            <p>-1<i class="lnr lnr-eye"></i></p>
-                        </div>
-                        <div class="profile-publication-text">
-                            <h2>Ололо ло оло ололо лоло ол лол</h2>
-                            <p>Lorem ipsum dolo dolor sit amet, consectetur adipiscing elit. Etiam malesuada accumsan elit bibendum consectetur. Nulla in enim ac nisl cursus vestibulum ut sit amet est. Donec sit amet libero quis mi euismod porttitor. Nulla elit ligula, condimentu</p>
-                        </div>
-                        <div class="profile-publication-button-container">
-                            <a class="profile-publication-button" href="/forum/articles2/">VIEW MORE</a>
-                        </div>
-                    </div>
-                    <div class="profile-publication-container">
-                        <div class="profile-publication-img-container">
-                            <div class="publication-blurImg-container">
-                                <img class="publication-blur-img" src="">
-                            </div>
-                            <img class="profile-publication-img blur-img-background" src="{% static 'img/test-photo-2.jpg' %}" alt="" style="height: 100%; width: auto;">
-                        </div>
-                        <div class="about-profile-publication">
-                            <a href="">OmegaTymbJIep<i class="lnr lnr-user"></i></a>
-                            <p>27 July 2020<i class="lnr lnr-calendar-full"></i></p>
-                            <p>-1<i class="lnr lnr-eye"></i></p>
-                        </div>
-                        <div class="profile-publication-text">
-                            <h2>Ололо ло оло ололо лоло ол лол</h2>
-                            <p>Lorem ipsum dolo dolor sit amet, consectetur adipiscing elit. Etiam malesuada accumsan elit bibendum consectetur. Nulla in enim ac nisl cursus vestibulum ut sit amet est. Donec sit amet libero quis mi euismod porttitor. Nulla elit ligula, condimentu</p>
-                        </div>
-                        <div class="profile-publication-button-container">
-                            <a class="profile-publication-button" href="/forum/articles2/">VIEW MORE</a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="profile-left-sidebar">
                 <div class="profile-img-container">
-                    <img src="{% static 'img/test-photo.jpg' %}" class="profile-img">
+                    <img src="{{profile.face_image.url}}" class="profile-img">
                 </div>
                 <div class="account-name">
                     <p class="profile-first-last-name">
+                        {% if profile.online %}
                         <span class="profile-user-active"></span>
+                        {% else %}
                         <span class="profile-user-inactive"></span>
+                        {% endif %}
                         <span></span>
                         {{user.first_name}} {{user.last_name}}
                     </p>
@@ -115,7 +60,7 @@
                 <div class="about-account">
                     <div class="about-me">
                         <p class="about-account-unit">О себе <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
-                        <p class="about-account-text">Вы ничего не рассказали о себе</p>
+                        <p class="about-account-text">{% if profile.about_myself %}{{profile.about_myself}}{%else%}Вы ничего не рассказали о себе{%endif%}</p>
                     </div>
                     <div class="about-me-container">
                         <p class="about-account-unit">Успешные заказы <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
@@ -127,22 +72,22 @@
                     </div>
                     <div class="about-me-container">
                         <p class="about-account-unit">Активность <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
-                        <p class="about-account-text">30.02.2021 16:32</p>
+                        <p class="about-account-text">{% if profile.last_seen %}{{ profile.last_seen|timesince }}{% else %}A while{% endif %} ago</p>
                     </div>
                     <div class="about-me-container">
                         <p class="about-account-unit">Дата регистрации <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
-                        <p class="about-account-text">01.09.1542</p>
+                        <p class="about-account-text">{{profile.date_registration | date:" d M Y"}}</p>
                     </div>
                     <div class="connection-with-me">
                         <p class="about-account-unit">Связь cо мной<!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
                         <div class="profile-connection-with-me-container">
-                            <a href="#"><i class="fa fa-profile fa-facebook-square" aria-hidden="true"></i></a>
+                            <a href="{{profile.facebook_link}}"><i class="fa fa-profile fa-facebook-square" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-profile fa-odnoklassniki-square" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-telegram" aria-hidden="true"></i></a>
+                            <a href="{{profile.telegram_link}}"><i class="fa fa-profile fa-telegram" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-profile fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-vk" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-whatsapp" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-instagram" aria-hidden="true"></i></a>
+                            <a href="{{profile.vk_link}}"><i class="fa fa-profile fa-vk" aria-hidden="true"></i></a>
+                            <a href="{{profile.whatsapp_link}}"><i class="fa fa-profile fa-whatsapp" aria-hidden="true"></i></a>
+                            <a href="{{profile.instagram_link}}"><i class="fa fa-profile fa-instagram" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-profile fa-envelope" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -160,36 +105,12 @@
         </div>
     </div>
 </section>
-
-<p> 1</p>
-<p> 1</p>
-<p> 1</p>
-<p> 1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
 <form method="post" enctype='multipart/form-data'>
     {%csrf_token%}
     {% if profile_form.errors %}
     <p>Something went wrong</p>
     {% endif %}
 
-    {% if not profile.face_image %}
-    <p>{{profile_form.face_image}}</p>
-    {% else %}
-    <img src="{{profile.face_image.url}}"><button>Change</button>
-    {% endif %}
-
-    <p>{{user.username}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.first_name}}</p>
-    <p>{{user.last_name}}</p>
-
-    {%if profile.birth_date != NULL %}
-    <p>{{profile.birth_date}}<button>Change</button></p>
-    {%else%}
-    <p>{{profile_form.birth_date}}</p>
-    {%endif%}
 
     {% if profile.about_myself %}
     <p>{{profile.about_myself}}<button>Change</button></p>
