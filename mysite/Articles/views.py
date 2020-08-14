@@ -1,14 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.html import strip_tags
 from .models import ArticleModel, CommentModel, TagModel
-from .forms import SearchForm
+from .forms import SearchForm, ArticleForm
 from django.utils import timezone
 
 
 def date_out(articles):
-    '''
-    Выводит в формате строки время прошедшее с момента создания статьи
-    '''
+    '''Выводит в формате строки время прошедшее с момента создания статьи'''
     for article in articles:
         date = timezone.now() - article.date
         if date.days != 0:
@@ -92,6 +90,36 @@ def forum_render(request, num, tag_name):
     }
 
     return render(request, 'forum.html', context)
+
+
+def add_article(request):
+    user = request.user
+    my_articles = ArticleModel.objects.all().filter(author__exact=user)
+
+    # удаление лишнего  html код
+    for i in my_articles:
+        i.text = strip_tags(i.text)
+        i.text = i.text[0:200]
+
+    if request.method == 'POST':
+        article_form = ArticleForm(request.POST)
+
+        if article_form.is_valid():
+            post = article_form.save(commit=False)
+            post.author = user
+            post.save()
+            return redirect('/forum/add_article')
+
+    else:
+        article_form = ArticleForm()
+
+    context = {
+        "article_form": article_form,
+        "user": user,
+        "my_articles": my_articles,
+    }
+
+    return render(request, 'add_article.html', context)
 
 
 def article_render(request, num):

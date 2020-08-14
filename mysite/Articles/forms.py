@@ -20,11 +20,13 @@ class SearchForm(forms.Form):
 
 
 class ArticleForm(ModelForm):
-    text = forms.CharField(widget=SummernoteWidget())
+    text = forms.CharField(widget=SummernoteWidget(attrs={
+        "label": ''
+    }))
 
     class Meta:
         model = ArticleModel
-        fields = ['text', 'heading', 'image']
+        fields = ['heading', 'text', 'image']
 
 
 class CommentForm(ModelForm):
