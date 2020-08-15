@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block title %} {{article.heading}}} {% endblock %}
+
+{% block content %}
+
+<p>Title: {{article.heading}}</p>
+<p><img src="{{article.image.url}}"></p>
+<p>Views: {{article.views}}</p>
+<p>Author: {{article.author}}</p>
+<p>Date creation: {{article.date | date:" d N Y"}}</p>
+
+<p>Text: {{article.text | safe}}</p>
+
+
+
+
+
+{% endblock %}

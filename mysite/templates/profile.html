@@ -35,7 +35,8 @@
                             <p>{{article.text | safe}}</p>
                         </div>
                         <div class="profile-publication-button-container">
-                            <a class="profile-publication-button" href="/forum/articles{{article.id}}/">VIEW MORE</a>
+                            <a class="profile-publication-button" href="/forum/articles{{article.id}}/">VIEW IT</a>
+                            <a class="profile-publication-button" href="/forum/change_article{{article.id}}/">CHANGE IT</a>
                         </div>
                     </div>
                     {% endfor %}
@@ -105,22 +106,6 @@
         </div>
     </div>
 </section>
-<form method="post" enctype='multipart/form-data'>
-    {%csrf_token%}
-    {% if profile_form.errors %}
-    <p>Something went wrong</p>
-    {% endif %}
-
-
-    {% if profile.about_myself %}
-    <p>{{profile.about_myself}}<button>Change</button></p>
-    {% else %}
-    <p>{{profile_form.about_myself}}</p>
-    {% endif %}
-    <p><input type="submit" value="SUBMIT" class = "contactButton"></p>
-</form>
-<p>
     <a href="/profile/logout/">LOGOUT</a>
     {% if user.is_superuser %}<a href="/admin/">ADMIN</a>{% endif %}
-</p>
 {% endblock %}

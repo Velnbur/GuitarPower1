@@ -18,7 +18,7 @@ class TagModel(models.Model):
 
 class ArticleModel(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    heading = models.CharField(max_length=50, verbose_name="Heading", default="Heading")
+    heading = models.CharField(max_length=50, verbose_name="Heading", default="")
     text = models.TextField(max_length=50000, verbose_name='Text', default="")
     date = models.DateTimeField(auto_now=True, verbose_name="Date")
     views = models.IntegerField(default=0)

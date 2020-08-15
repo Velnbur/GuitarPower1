@@ -3,6 +3,7 @@ from django.utils.html import strip_tags
 from .models import ArticleModel, CommentModel, TagModel
 from .forms import SearchForm, ArticleForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 
 def date_out(articles):
@@ -137,3 +138,33 @@ def article_render(request, num):
         "comments": comments,
     }
     return render(request, 'articles.html', context)
+
+
+@login_required
+def change_article(request, num):
+    article = ArticleModel.objects.get(id__exact=num)
+    if article.author == request.user:
+        if request.method == 'POST':
+            article_form = ArticleForm(request.POST)
+
+            if article_form.is_valid():
+                post = article_form.save(commit=False)
+                post.author = request.user
+                post.views = article.views
+                post.date = article.date
+                post.save()
+                return redirect('/profile/')
+
+        else:
+            article_form = ArticleForm()
+            article_form.fields['heading'].widget.attrs['value'] = article.heading
+            article_form.fields['text'].widget.attrs['value'] = article.text
+
+        context = {
+            "article": article,
+            "article_form": article_form,
+        }
+
+        return render(request, 'change_article.html', context)
+    else:
+        return redirect('/profile/')
