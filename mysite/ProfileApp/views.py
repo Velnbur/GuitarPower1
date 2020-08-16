@@ -58,6 +58,7 @@ def profile_render(request):
         'profile': profile,
         'profile_form': profile_form,
         'my_articles': articles,
+        'count': articles.count(),
     }
     return render(request, 'profile.html', context)
 

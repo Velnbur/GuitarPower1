@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils.html import strip_tags
 from .models import ArticleModel, CommentModel, TagModel
-from .forms import SearchForm, ArticleForm
+from .forms import SearchForm, ArticleForm, CommentForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
@@ -124,18 +124,31 @@ def add_article(request):
 
 
 def article_render(request, num):
-    articles = ArticleModel.objects.get(id__exact=num)
-    comments = CommentModel.objects.filter(article_to_id=articles)
+    article = ArticleModel.objects.get(id__exact=num)
+    comments = CommentModel.objects.filter(article_to_id=article)
     # иннициализация статьи и комментариев
 
-    articles.views += 1
-    articles.save()
+    article.views += 1
+    article.save()
     # увеличение просмотров на 1 и сохранение числа в БД
 
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            post = comment_form.save(commit=False)
+            post.author = request.user
+            post.article_to = article
+            post.save()
+
+    else:
+        comment_form = CommentForm()
+
     context = {
-        "article": articles,
+        "article": article,
         "num": num,
         "comments": comments,
+        "comment_form": comment_form,
     }
     return render(request, 'articles.html', context)
 

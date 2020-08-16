@@ -14,7 +14,26 @@
 
 <p>Text: {{article.text | safe}}</p>
 
+<h1>Comments</h1>
+<form method="post" action="">
+    {% csrf_token %}
 
+    <p>
+        {{comment_form.text}}
+        <input type="submit" value="Add Comment" class = ""/>
+        <input type="hidden" name="next" value="" />
+    </p>
+
+</form>
+
+
+{% for comment in comments%}
+<p>Author: {{comment.author}}</p>
+<p>Text: {{comment.text}}</p>
+<p>Date: {{comment.date | date:'d N Y'}}</p>
+<p>########</p>
+
+{% endfor %}
 
 
 
