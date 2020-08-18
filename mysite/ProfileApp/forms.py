@@ -106,12 +106,38 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = ProfileModel
-        fields = ('face_image', 'about_myself')
+        fields = ('face_image',
+                  'about_myself',
+                  'telegram_link',
+                  'facebook_link',
+                  'whatsapp_link',
+                  'vk_link',
+                  'instagram_link',)
 
     face_image = forms.ImageField(widget=forms.FileInput(attrs={'class': '',
                                                                 'placeholder': ''}),
                                   required=False)
     about_myself = forms.CharField(widget=forms.Textarea(attrs={'class': '',
-                                                                 'placeholder': '',
+                                                                'placeholder': '',
                                                                 'value': ''}),
                                    required=False)
+    telegram_link = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                                  'placeholder': 'Link for your telegram',
+                                                                  'value': ''}),
+                                    required=False)
+    facebook_link = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                                  'placeholder': 'Link for your facebook',
+                                                                  'value': ''}),
+                                    required=False)
+    whatsapp_link = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                                  'placeholder': 'Link for your whatsapp',
+                                                                  'value': ''}),
+                                    required=False)
+    vk_link = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                            'placeholder': 'Link for your vk',
+                                                            'value': ''}),
+                              required=False)
+    instagram_link = forms.CharField(widget=forms.TextInput(attrs={'class': '',
+                                                                   'placeholder': 'Link for your instagram',
+                                                                   'value': ''}),
+                                     required=False)

@@ -83,9 +83,7 @@
                         <p class="about-account-unit">Связь cо мной<!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
                         <div class="profile-connection-with-me-container">
                             <a href="{{profile.facebook_link}}"><i class="fa fa-profile fa-facebook-square" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-odnoklassniki-square" aria-hidden="true"></i></a>
                             <a href="{{profile.telegram_link}}"><i class="fa fa-profile fa-telegram" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-profile fa-twitter" aria-hidden="true"></i></a>
                             <a href="{{profile.vk_link}}"><i class="fa fa-profile fa-vk" aria-hidden="true"></i></a>
                             <a href="{{profile.whatsapp_link}}"><i class="fa fa-profile fa-whatsapp" aria-hidden="true"></i></a>
                             <a href="{{profile.instagram_link}}"><i class="fa fa-profile fa-instagram" aria-hidden="true"></i></a>
@@ -95,7 +93,7 @@
                 </div>
                 <div class="account-buttons">
                     <a class="profile-button-iWantToBeAMaster" href="#">Я хочу стать мастером</a>
-                    <a class="profile-settings-button" href="#">Настройки</a>
+                    <a class="profile-settings-button" href="{% url 'change_profile' %}">Настройки</a>
                 </div>
             </div>
         </div>

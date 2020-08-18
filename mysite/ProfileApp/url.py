@@ -5,10 +5,11 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path(r'', views.profile_render),
-    path(r'login/', views.login_view),
-    path(r'logout/', views.logout_view),
-    path(r'register/', views.register_view),
+    path(r'', views.profile_render, name='profile'),
+    path(r'login/', views.login_view, name='login'),
+    path(r'logout/', views.logout_view, name='logout'),
+    path(r'register/', views.register_view, name='register'),
+    path(r'change_profile', views.change_profile, name='change_profile'),
 
     path(r'activate/<uidb64>/<token>/',
          views.activate, name='activate'),

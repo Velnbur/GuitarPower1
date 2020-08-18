@@ -17,38 +17,14 @@ from django.contrib.auth.models import User
 
 @login_required
 def profile_render(request):
-    if request.method == 'POST':
-        # проверка на тип http запроса
+    # иннициализация модели пользователя
+    user = request.user
 
-        user = request.user
-        # иннициализация модели пользователя
+    # модель профиля
+    profile = ProfileModel.objects.get(user__exact=user.id)
 
-        profile_form = ProfileForm(request.POST, request.FILES, instance=user.profilemodel)
-        # иннициализация формы профиля
-        profile = ProfileModel.objects.get(user__exact=user.id)
-        # модель профиля
-        articles = ArticleModel.objects.all().filter(author__exact=profile.user)
-
-        if profile_form.is_valid():
-            post = profile_form.save(commit=False)
-            birth_date = profile_form.cleaned_data['birth_date']
-            if profile.birth_date:
-                post.birth_date = profile.birth_date
-            elif birth_date == '':
-                post.birth_date = None
-            if post.about_myself == '':
-                post.about_myself = None
-            post.user = user
-            post.save()
-            # если форма заполнена правильно,
-            # то она сохраняется в модель с соответствующим пользователем в параметре user
-            return redirect('/profile/')
-    else:
-        user = request.user
-        profile_form = ProfileForm(instance=user.profilemodel)
-        profile = ProfileModel.objects.get(user__exact=user.id)
-        profile_form.fields['about_myself'].widget.attrs['value'] = profile.about_myself
-        articles = ArticleModel.objects.all().filter(author__exact=profile.user)
+    # инициализация самой статьи
+    articles = ArticleModel.objects.all().filter(author__exact=profile.user)
 
     for i in articles:
         i.text = strip_tags(i.text)
@@ -56,7 +32,6 @@ def profile_render(request):
     context = {
         'user': user,
         'profile': profile,
-        'profile_form': profile_form,
         'my_articles': articles,
         'count': articles.count(),
     }
@@ -148,3 +123,32 @@ def activate(request, uidb64, token):
         return redirect('/profile/')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+def change_profile(request):
+    user = request.user
+    profile = ProfileModel.objects.get(user__exact=user.id)
+
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if profile_form.is_valid():
+            post = profile_form.save(commit=False)
+            post.user = user
+            post.save()
+            return redirect('/profile/')
+    else:
+        profile_form = ProfileForm()
+        profile_form.fields['about_myself'].widget.attrs['value'] = profile.about_myself
+        profile_form.fields['telegram_link'].widget.attrs['value'] = profile.telegram_link
+        profile_form.fields['facebook_link'].widget.attrs['value'] = profile.facebook_link
+        profile_form.fields['whatsapp_link'].widget.attrs['value'] = profile.whatsapp_link
+        profile_form.fields['vk_link'].widget.attrs['value'] = profile.vk_link
+        profile_form.fields['instagram_link'].widget.attrs['value'] = profile.instagram_link
+
+    context = {
+        'profile_form': profile_form,
+        'user': user,
+        'profile': profile,
+    }
+
+    return render(request, "settings.html", context)
