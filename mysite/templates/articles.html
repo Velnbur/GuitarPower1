@@ -19,9 +19,11 @@
     {% csrf_token %}
 
     <p>
+        {% if user.is_authenticated %}
         {{comment_form.text}}
         <input type="submit" value="Add Comment" class = ""/>
         <input type="hidden" name="next" value="" />
+        {% endif %}
     </p>
 
 </form>
