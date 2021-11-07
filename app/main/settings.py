@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'Articles',
-    'ProfileApp',
+    'Profiles',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ CACHES = {
 USER_ONLINE_TIMEOUT = 300
 USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'main.urls'
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATICFILES_DIRS = [
@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database

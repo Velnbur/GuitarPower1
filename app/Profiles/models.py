@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.cache import cache
 import datetime
-from mysite import settings
+from main import settings
 
 
 class ProfileModel(models.Model):

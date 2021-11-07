@@ -28,3 +28,8 @@ Create sqlite DB and make migrations:
 
 Run server:
 > python3 app/manage.py runserver 8000
+
+## Contributors
+
+- [@Velnbur](https://github.com/Velnbur)
+- [@OmegaTymbJIep](https://github.com/OmegaTymbJIep)
