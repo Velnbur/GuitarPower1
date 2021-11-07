@@ -1,0 +1,74 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+<!--{% block title %}Profile{% endblock %}-->
+
+{% block content %}
+
+<section class="profile-section">
+    <div class="profile">
+        <div class="profile-inner">
+
+            <div class="profile-left-sidebar">
+                <form method="post" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+                    <div class="profile-img-container">
+                        <img src="{{profile.face_image.url}}" class="profile-img">
+                    </div>
+                    <p>{{profile_form.face_image}}</p>
+                    <div class="account-name">
+                        <p class="profile-first-last-name">
+                            {% if profile.online %}
+                            <span class="profile-user-active"></span>
+                            {% else %}
+                            <span class="profile-user-inactive"></span>
+                            {% endif %}
+                            <span></span>
+                            {{user.first_name}} {{user.last_name}}
+                        </p>
+                        <p class="profile-username">{{user.username}}</p>
+                    </div>
+                    <div class="about-account">
+                        <div class="about-me">
+                            <p class="about-account-unit">О себе <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                            <p class="about-account-text">{{profile_form.about_myself}}</p>
+                        </div>
+                        <div class="about-me-container">
+                            <p class="about-account-unit">Успешные заказы <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                            <p class="about-account-text">0</p>
+                        </div>
+                        <div class="about-me-container">
+                            <p class="about-account-unit">Рейтинг <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                            <p class="about-account-text">0</p>
+                        </div>
+                        <div class="about-me-container">
+                            <p class="about-account-unit">Дата регистрации <!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                            <p class="about-account-text">{{profile.date_registration | date:" d M Y"}}</p>
+                        </div>
+                        <div class="connection-with-me">
+                            <p class="about-account-unit">Связь cо мной<!--<span class="lnr lnr-pencil lnr-pencil-about-account" onclick="showTextarea(event)"></span>--></p>
+                            <p>{{profile_form.telegram_link}}</p>
+                            <p>{{profile_form.facebook_link}}</p>
+                            <p>{{profile_form.whatsapp_link}}</p>
+                            <p>{{profile_form.vk_link}}</p>
+                            <p>{{profile_form.instagram_link}}</p>
+                        </div>
+                    </div>
+                    <div class="account-buttons">
+                        <a class="profile-button-iWantToBeAMaster" href="#">Я хочу стать мастером</a>
+                        <input type="submit" value="Add changes" class = "profile-settings-button"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="profile-settings">
+        <div class="profile-settings-inner">
+
+        </div>
+    </div>
+</section>
+    <a href="/profile/logout/">LOGOUT</a>
+    {% if user.is_superuser %}<a href="/admin/">ADMIN</a>{% endif %}
+{% endblock %}

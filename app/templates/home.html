@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset = "utf-8">
+    <link rel="shortcut icon" href="{% static 'img/fav.png'%}">
+
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/linearicons.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.5.0.js'%}"></script>
+</head>
+
+
+
+<body>
+    <script>
+      window.onload = function () {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function () {
+          document.body.classList.add('loaded');
+          document.body.classList.remove('loaded_hiding');
+        }, 500);
+      }
+    </script>
+    <header class="header">
+        <div class="header-inner">
+            <div class="container">
+                <div class="header-area">
+                    <div class="header-logo">
+                        <img src="{% static 'img/logo.png'%}" class="logo">
+                        <p class="logo-title">KARMA</p>
+                    </div>
+
+                    <nav class="nav-menu">
+                        <ul class="nav-list">
+                            <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">SHOP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">CHAT</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/forum/1tag=_">FORUM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/profile">{% if user.is_authenticated %}PROFILE {% else %} LOGIN {% endif %}
+                            </a></li>
+
+                        </ul>
+                        <!-- ==START== Animation for header menu button-->
+                        <div class="hamburger-button" onclick="hamburger()">
+                            <svg id="hamburger_anim" class="ham hamRotate ham1" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                                <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                                <path class="line middle" d="m 30,50 h 40" />
+                                <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                            </svg>
+                        </div>
+                        <!-- ==END== Animation for header menu button-->
+                    </nav>
+                </div>
+            </div>
+            <ul class="nav-list-hamburger">
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="/">HOME</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">SHOP</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="">CHAT</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="/forum/1tag=_">FORUM</a></li>
+                <li class="nav-item-hamburger"><a class="nav-link-hamburger" href="/profile">{% if user.is_authenticated %}PROFILE {% else %} LOGIN {% endif %}</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="loader-body">
+        <div class="loader">
+            <span></span>
+            <span class="yellow-span"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    {% block content %}
+
+    <section class="intro-section fullscreen">
+        <div class="intro">
+            <div class="intro-inner">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-section">
+        <div class="features">
+            <div class="features-container">
+                <div class="feature-helper-block">
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon1.png'%}" alt="">
+                            <h6>Free Delivery</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon2.png'%}" alt="">
+                            <h6>Return Policy</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-helper-block">
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon3.png'%}" alt="">
+                            <h6>24/7 Support</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                    <div class="feature-block">
+                        <div class="feature-content-box">
+                            <img class="feature-ico" src="{% static 'img/features/f-icon3.png'%}" alt="">
+                            <h6>Secure Payment</h6>
+                            <p>Free Shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-section fullscreen">
+        <div class="product">
+            <div class="product-inner">
+                <div class="container">
+                    <div class="product-flex-container">
+                        <div class="product-img-container first-product-img">
+                            <img src="{% static 'img/product-guitar-one.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container second-product-img">
+                            <img src="{% static 'img/product-guitar-two.jpeg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container third-product-img">
+                            <img src="{% static 'img/product-guitar-third.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container fourth-product-img">
+                            <img src="{% static 'img/product-guitar-fourth.jpg'%}" class="product-img"  alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                        <div class="product-img-container fifth-product-img">
+                            <img src="{% static 'img/product-guitar-fifth.jpg'%}" class="product-img" alt="">
+                            <div class="flying-inscription-text-box">
+                                <p class="flying-inscription-text">Hello!</p>
+                            </div>
+                            <div class="flying-inscription"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-section fullscreen">
+        <div class="slider">
+            <div class="slider__wrapper">
+                <div class="slider__items">
+                    <div class="slider__item">
+                        <div style="height: 250px; background: orange;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: green;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: violet;"></div>
+                    </div>
+                    <div class="slider__item">
+                        <div style="height: 250px; background: coral;">
+                            <p style="position: relative; width: 100%; top: 48%; text-align: center; color: white; font-size: 40px;">
+                                Ololololo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="slider__control slider__control_prev" href="#" role="button"></a>
+            <a class="slider__control slider__control_next slider__control_show" href="#" role="button"></a>
+        </div>
+        <div class="comment-slider">
+            <div class="comment-article-slider">
+                <div class="slider__wrapper">
+                    <div class="slider__items">
+                        <div class="slider__item">
+                            <div style="height: 250px; background: orange;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: green;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: violet;"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div style="height: 250px; background: coral;"></div>
+                        </div>
+                    </div>
+                </div>
+                <a class="slider__control slider__control_prev" href="#" role="button"></a>
+                <a class="slider__control slider__control_next slider__control_show" href="#" role="button"></a>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about-us">
+                <h6 class="footer-h6">About Us</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+            </div>
+
+            <div class="footer-newsletter">
+                <h6 class="footer-h6">Newsletter</h6>
+                <p>Stay update with our latest</p>
+                <form class="footer-form">
+                    <input type="text" class="footer-input" placeholder="Enter Email" onfocus="this.placeholder=''" onblur="this.placeholder='Enter Emaill'">
+                    <button type="submit"><i class="fa fa-long-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-instagram-feed">
+                <h6 class="footer-h6">Instagram Feed</h6>
+                <div class="footer-instagram-photo-box">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                    <img src="{% static 'img/test-photo-2.jpg' %}" class="footer-instagram-photo" alt="">
+                </div>
+            </div>
+
+            <div class="footer-follow-us">
+                <h6 class="footer-h6">Follow Us</h6>
+                <p>Let us be social</p>
+                <div class="follow-us-container">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-vk"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.sticky.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/dynamic_adapt.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/slider.js'%}"></script>
+</body>
+
+</html>
