@@ -22,9 +22,9 @@ Install requirments:
 > pip3 install -r ./requirments.txt
 
 Create sqlite DB and make migrations:
-> touch app/db.sqlite3
-> python3 app/manage.py migrate
-> python3 app/manage.py makemigrations
+> touch app/db.sqlite3  
+> python3 app/manage.py migrate  
+> python3 app/manage.py makemigrations  
 
 Run server:
 > python3 app/manage.py runserver 8000
